@@ -6,9 +6,8 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = ">=3.10, <4.0"
 
-[tool.black]
-line-length = 88
-target-version = ['py310', 'py311', 'py312', 'py313']
+[tool.poetry.group.dev.dependencies]
+black = "^24.10"
 
 [build-system]
 requires = ["poetry-core"]
