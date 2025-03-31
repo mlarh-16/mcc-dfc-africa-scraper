@@ -1,28 +1,28 @@
 import logging
 
 
-def setup_logger(name) -> logging.Logger:
+def setup_logger(name: str, level: int = logging.INFO) -> logging.Logger:
     """Set up the logger.
 
     Args:
         name (str): The name of the logger.
+        level (int): Logging level (default is logging.INFO).
 
     Returns:
-        logging.Logger: The logger.
-
+        logging.Logger: Configured logger.
     """
     logger_ = logging.getLogger(name)
-    logger_.setLevel(logging.INFO)
+    logger_.setLevel(level)
 
-    console_handler = logging.StreamHandler()
-    console_handler.setLevel(logging.INFO)
+    if not logger_.handlers:
+        formatter = logging.Formatter(
+            "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+        )
 
-    formatter = logging.Formatter(
-        "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-    )
-    console_handler.setFormatter(formatter)
-
-    logger_.addHandler(console_handler)
+        console_handler = logging.StreamHandler()
+        console_handler.setLevel(level)
+        console_handler.setFormatter(formatter)
+        logger_.addHandler(console_handler)
 
     return logger_
 
