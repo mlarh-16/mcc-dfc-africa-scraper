@@ -1,30 +1,44 @@
+"""
+scripts/logger.py
+─────────────────
+Shared logger for the MCC Africa scraper.
+Writes to both console and output/run_log.txt simultaneously.
+"""
+
 import logging
+import sys
+from scripts.config import FILES
 
 
-def setup_logger(name: str, level: int = logging.INFO) -> logging.Logger:
-    """Set up the logger.
-
-    Args:
-        name (str): The name of the logger.
-        level (int): Logging level (default is logging.INFO).
-
-    Returns:
-        logging.Logger: Configured logger.
+def get_logger(name: str = "mcc_scraper") -> logging.Logger:
     """
-    logger_ = logging.getLogger(name)
-    logger_.setLevel(level)
+    Returns a configured logger that writes to:
+      - stdout (console)
+      - output/run_log.txt (file)
+    """
+    logger = logging.getLogger(name)
 
-    if not logger_.handlers:
-        formatter = logging.Formatter(
-            "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-        )
+    if logger.handlers:
+        return logger  # already configured — don't add duplicate handlers
 
-        console_handler = logging.StreamHandler()
-        console_handler.setLevel(level)
-        console_handler.setFormatter(formatter)
-        logger_.addHandler(console_handler)
+    logger.setLevel(logging.DEBUG)
 
-    return logger_
+    fmt = logging.Formatter(
+        fmt="%(asctime)s  %(levelname)-8s  %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+    )
 
+    # Console handler
+    console = logging.StreamHandler(sys.stdout)
+    console.setLevel(logging.INFO)
+    console.setFormatter(fmt)
 
-logger = setup_logger("research_project")
+    # File handler
+    file_h = logging.FileHandler(FILES["run_log"], mode="a", encoding="utf-8")
+    file_h.setLevel(logging.DEBUG)
+    file_h.setFormatter(fmt)
+
+    logger.addHandler(console)
+    logger.addHandler(file_h)
+
+    return logger

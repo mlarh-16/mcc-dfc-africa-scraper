@@ -1,0 +1,676 @@
+2026-03-26 15:48:13  INFO      =======================================================
+2026-03-26 15:48:13  INFO        MCC + DFC Africa — Full Data Collection Run
+2026-03-26 15:48:13  INFO      =======================================================
+2026-03-26 15:48:13  INFO      
+>>> Starting MCC scraper…
+2026-03-26 16:19:33  INFO      =======================================================
+2026-03-26 16:19:33  INFO        MCC + DFC Africa — Full Data Collection Run
+2026-03-26 16:19:33  INFO      =======================================================
+2026-03-26 16:19:33  INFO      
+>>> Starting MCC scraper…
+2026-03-26 16:19:33  INFO      =======================================================
+2026-03-26 16:19:33  INFO        MCC Africa Data Collection
+2026-03-26 16:19:33  INFO      =======================================================
+2026-03-26 16:19:33  INFO      ── USASpending.gov: MCC awards ──────────────────────
+2026-03-26 16:20:03  INFO        Raw awards saved → C:\Users\mklar\DataProjects\mcc_data\raw_data\usaspending_mcc_all.xlsx (2000 rows)
+2026-03-26 16:20:22  INFO        Africa awards saved → C:\Users\mklar\DataProjects\mcc_data\output\usaspending_mcc_africa.xlsx (192 rows)
+2026-03-26 16:20:22  INFO      ── USASpending.gov: top recipients ──────────────────
+2026-03-26 16:20:23  INFO        Recipients saved → C:\Users\mklar\DataProjects\mcc_data\output\usaspending_mcc_top_recipients.xlsx (100 rows)
+2026-03-26 16:20:24  INFO      
+  Top 10 recipients:
+                  name      amount                           recipient_id
+    FRANKLIN COURT INC 83013174.82 b1786633-3f22-fc63-c7bb-b91c56efa0ac-C
+               TCG INC 77087920.29 34d2c593-62ba-4ba9-a626-6f92fec282c1-C
+      MBO PARTNERS INC 76484018.34 bc495960-0fca-2cc3-ad1a-deab2b81a9b4-C
+       NORDA STELO INC 75065464.09 028b3c10-359a-b13b-57cd-4a51be333a71-C
+      MATHEMATICA INC. 56917181.49 f2614075-5f79-8bb5-9d8f-f6057e8dc3c7-C
+       WSP CANADA INC. 50792530.81 7429595a-df08-8729-9eb6-0a6b0bbc0cef-C
+IRON VINE SECURITY LLC 47796560.18 8e74902e-0b78-5369-b4a4-85524f4c5290-C
+      MATHEMATICA INC. 42756932.04 3debc7b9-262b-227f-310a-1cbb379a3ada-C
+ BOWEN BUILDING, L. P. 42710783.82 8292b71c-e033-8f62-d43d-4e007bf90301-C
+       1901 GROUP, LLC 39706931.14 667ff9fc-a22f-4295-a851-35df8a45e866-C
+2026-03-26 16:20:24  INFO      ── SAM.gov: procurement opportunities ───────────────
+2026-03-26 16:20:24  WARNING     SAM.gov skipped — no API key set in config.py
+2026-03-26 16:20:24  WARNING     Get a free key at: https://sam.gov/profile/details
+2026-03-26 16:20:24  INFO      ── MCC.gov: country compact pages ───────────────────
+2026-03-26 16:20:24  ERROR       ghana: Exception — 'latin-1' codec can't encode character '\u2014' in position 37: ordinal not in range(256)
+2026-03-26 16:20:24  ERROR       tanzania: Exception — 'latin-1' codec can't encode character '\u2014' in position 37: ordinal not in range(256)
+2026-03-26 16:20:24  ERROR       morocco: Exception — 'latin-1' codec can't encode character '\u2014' in position 37: ordinal not in range(256)
+2026-03-26 16:20:24  ERROR       mozambique: Exception — 'latin-1' codec can't encode character '\u2014' in position 37: ordinal not in range(256)
+2026-03-26 16:20:24  ERROR       lesotho: Exception — 'latin-1' codec can't encode character '\u2014' in position 37: ordinal not in range(256)
+2026-03-26 16:20:24  ERROR       senegal: Exception — 'latin-1' codec can't encode character '\u2014' in position 37: ordinal not in range(256)
+2026-03-26 16:20:24  ERROR       namibia: Exception — 'latin-1' codec can't encode character '\u2014' in position 37: ordinal not in range(256)
+2026-03-26 16:20:24  ERROR       ethiopia: Exception — 'latin-1' codec can't encode character '\u2014' in position 37: ordinal not in range(256)
+2026-03-26 16:20:24  ERROR       mali: Exception — 'latin-1' codec can't encode character '\u2014' in position 37: ordinal not in range(256)
+2026-03-26 16:20:24  ERROR       rwanda: Exception — 'latin-1' codec can't encode character '\u2014' in position 37: ordinal not in range(256)
+2026-03-26 16:20:25  ERROR       benin: Exception — 'latin-1' codec can't encode character '\u2014' in position 37: ordinal not in range(256)
+2026-03-26 16:20:25  ERROR       burkina-faso: Exception — 'latin-1' codec can't encode character '\u2014' in position 37: ordinal not in range(256)
+2026-03-26 16:20:25  ERROR       sierra-leone: Exception — 'latin-1' codec can't encode character '\u2014' in position 37: ordinal not in range(256)
+2026-03-26 16:20:25  ERROR       cote-divoire: Exception — 'latin-1' codec can't encode character '\u2014' in position 37: ordinal not in range(256)
+2026-03-26 16:20:25  ERROR       zambia: Exception — 'latin-1' codec can't encode character '\u2014' in position 37: ordinal not in range(256)
+2026-03-26 16:20:25  ERROR       cabo-verde: Exception — 'latin-1' codec can't encode character '\u2014' in position 37: ordinal not in range(256)
+2026-03-26 16:20:25  ERROR       niger: Exception — 'latin-1' codec can't encode character '\u2014' in position 37: ordinal not in range(256)
+2026-03-26 16:20:25  ERROR       kenya: Exception — 'latin-1' codec can't encode character '\u2014' in position 37: ordinal not in range(256)
+2026-03-26 16:20:25  ERROR       malawi: Exception — 'latin-1' codec can't encode character '\u2014' in position 37: ordinal not in range(256)
+2026-03-26 16:20:25  ERROR       liberia: Exception — 'latin-1' codec can't encode character '\u2014' in position 37: ordinal not in range(256)
+2026-03-26 16:20:25  ERROR       madagascar: Exception — 'latin-1' codec can't encode character '\u2014' in position 37: ordinal not in range(256)
+2026-03-26 16:20:25  ERROR       tunisia: Exception — 'latin-1' codec can't encode character '\u2014' in position 37: ordinal not in range(256)
+2026-03-26 16:20:25  INFO        Country pages saved → C:\Users\mklar\DataProjects\mcc_data\output\mcc_country_pages.xlsx (0 rows)
+2026-03-26 16:20:25  INFO      
+=======================================================
+2026-03-26 16:20:25  INFO        SUMMARY
+2026-03-26 16:20:25  INFO      =======================================================
+2026-03-26 16:20:25  INFO        USASpending Africa awards : 192 rows
+2026-03-26 16:20:25  INFO        Top MCC recipients        : 100 firms
+2026-03-26 16:20:25  INFO        SAM.gov opportunities     : 0 rows
+2026-03-26 16:20:25  INFO        MCC country pages         : 0 countries
+2026-03-26 16:20:25  INFO      
+  Output files:
+2026-03-26 16:20:25  INFO          raw_data\usaspending_mcc_all.xlsx
+2026-03-26 16:20:25  INFO          output\usaspending_mcc_africa.xlsx
+2026-03-26 16:20:25  INFO          output\usaspending_mcc_top_recipients.xlsx
+2026-03-26 16:20:25  INFO          output\mcc_country_pages.xlsx
+2026-03-26 16:20:25  INFO          output\run_log.txt
+2026-03-26 16:20:25  INFO      
+>>> Starting DFC scraper…
+2026-03-26 16:20:25  INFO      =======================================================
+2026-03-26 16:20:25  INFO        DFC Africa Data Collection
+2026-03-26 16:20:25  INFO      =======================================================
+2026-03-26 16:20:25  INFO      ── DFC.gov: active projects ─────────────────────────
+2026-03-26 16:24:21  INFO      =======================================================
+2026-03-26 16:24:21  INFO        MCC + DFC Africa — Full Data Collection Run
+2026-03-26 16:24:21  INFO      =======================================================
+2026-03-26 16:24:21  INFO      
+>>> Starting MCC scraper…
+2026-03-26 16:24:21  INFO      =======================================================
+2026-03-26 16:24:21  INFO        MCC Africa Data Collection
+2026-03-26 16:24:21  INFO      =======================================================
+2026-03-26 16:24:21  INFO      ── USASpending.gov: MCC awards ──────────────────────
+2026-03-26 16:24:45  INFO        Raw awards saved → C:\Users\mklar\DataProjects\mcc_data\raw_data\usaspending_mcc_all.xlsx (2000 rows)
+2026-03-26 16:25:03  INFO        Africa awards saved → C:\Users\mklar\DataProjects\mcc_data\output\usaspending_mcc_africa.xlsx (192 rows)
+2026-03-26 16:25:03  INFO      ── USASpending.gov: top recipients ──────────────────
+2026-03-26 16:25:05  INFO        Recipients saved → C:\Users\mklar\DataProjects\mcc_data\output\usaspending_mcc_top_recipients.xlsx (100 rows)
+2026-03-26 16:25:05  INFO      
+  Top 10 recipients:
+                  name      amount                           recipient_id
+    FRANKLIN COURT INC 83013174.82 b1786633-3f22-fc63-c7bb-b91c56efa0ac-C
+               TCG INC 77087920.29 34d2c593-62ba-4ba9-a626-6f92fec282c1-C
+      MBO PARTNERS INC 76484018.34 bc495960-0fca-2cc3-ad1a-deab2b81a9b4-C
+       NORDA STELO INC 75065464.09 028b3c10-359a-b13b-57cd-4a51be333a71-C
+      MATHEMATICA INC. 56917181.49 f2614075-5f79-8bb5-9d8f-f6057e8dc3c7-C
+       WSP CANADA INC. 50792530.81 7429595a-df08-8729-9eb6-0a6b0bbc0cef-C
+IRON VINE SECURITY LLC 47796560.18 8e74902e-0b78-5369-b4a4-85524f4c5290-C
+      MATHEMATICA INC. 42756932.04 3debc7b9-262b-227f-310a-1cbb379a3ada-C
+ BOWEN BUILDING, L. P. 42710783.82 8292b71c-e033-8f62-d43d-4e007bf90301-C
+       1901 GROUP, LLC 39706931.14 667ff9fc-a22f-4295-a851-35df8a45e866-C
+2026-03-26 16:25:05  INFO      ── SAM.gov: procurement opportunities ───────────────
+2026-03-26 16:25:05  WARNING     SAM.gov skipped — no API key set in config.py
+2026-03-26 16:25:05  WARNING     Get a free key at: https://sam.gov/profile/details
+2026-03-26 16:25:05  INFO      ── MCC.gov: country compact pages ───────────────────
+2026-03-26 16:25:06  DEBUG       ghana: OK — 0 PDFs, amounts: []
+2026-03-26 16:25:07  DEBUG       tanzania: OK — 0 PDFs, amounts: ['$698.1 million']
+2026-03-26 16:25:09  DEBUG       morocco: OK — 0 PDFs, amounts: ['$460.5 million']
+2026-03-26 16:25:10  DEBUG       mozambique: OK — 0 PDFs, amounts: []
+2026-03-26 16:25:12  DEBUG       lesotho: OK — 0 PDFs, amounts: []
+2026-03-26 16:25:13  DEBUG       senegal: OK — 1 PDFs, amounts: []
+2026-03-26 16:25:15  DEBUG       namibia: OK — 0 PDFs, amounts: []
+2026-03-26 16:25:17  DEBUG       ethiopia: OK — 0 PDFs, amounts: []
+2026-03-26 16:25:18  DEBUG       mali: OK — 0 PDFs, amounts: []
+2026-03-26 16:25:20  DEBUG       rwanda: OK — 0 PDFs, amounts: []
+2026-03-26 16:25:21  DEBUG       benin: OK — 1 PDFs, amounts: ['$391 million', '$202 million']
+2026-03-26 16:25:23  DEBUG       burkina-faso: OK — 1 PDFs, amounts: []
+2026-03-26 16:25:24  DEBUG       sierra-leone: OK — 0 PDFs, amounts: ['$480 million', '$44.4 million']
+2026-03-26 16:25:27  DEBUG       cote-divoire: OK — 0 PDFs, amounts: ['$536 million', '$12 million', '$524 million']
+2026-03-26 16:25:30  DEBUG       zambia: OK — 0 PDFs, amounts: []
+2026-03-26 16:25:31  DEBUG       cabo-verde: OK — 0 PDFs, amounts: []
+2026-03-26 16:25:33  DEBUG       niger: OK — 0 PDFs, amounts: ['$442.6 million']
+2026-03-26 16:25:34  DEBUG       kenya: OK — 0 PDFs, amounts: []
+2026-03-26 16:25:35  DEBUG       malawi: OK — 1 PDFs, amounts: []
+2026-03-26 16:25:37  DEBUG       liberia: OK — 0 PDFs, amounts: []
+2026-03-26 16:25:39  DEBUG       madagascar: OK — 0 PDFs, amounts: []
+2026-03-26 16:25:41  DEBUG       tunisia: OK — 0 PDFs, amounts: []
+2026-03-26 16:25:42  INFO        Country pages saved → C:\Users\mklar\DataProjects\mcc_data\output\mcc_country_pages.xlsx (22 rows)
+2026-03-26 16:25:42  INFO      
+=======================================================
+2026-03-26 16:25:42  INFO        SUMMARY
+2026-03-26 16:25:42  INFO      =======================================================
+2026-03-26 16:25:42  INFO        USASpending Africa awards : 192 rows
+2026-03-26 16:25:42  INFO        Top MCC recipients        : 100 firms
+2026-03-26 16:25:42  INFO        SAM.gov opportunities     : 0 rows
+2026-03-26 16:25:42  INFO        MCC country pages         : 22 countries
+2026-03-26 16:25:42  INFO      
+  Output files:
+2026-03-26 16:25:42  INFO          raw_data\usaspending_mcc_all.xlsx
+2026-03-26 16:25:42  INFO          output\usaspending_mcc_africa.xlsx
+2026-03-26 16:25:42  INFO          output\usaspending_mcc_top_recipients.xlsx
+2026-03-26 16:25:42  INFO          output\mcc_country_pages.xlsx
+2026-03-26 16:25:42  INFO          output\run_log.txt
+2026-03-26 16:25:42  INFO      
+>>> Starting DFC scraper…
+2026-03-26 16:25:42  INFO      =======================================================
+2026-03-26 16:25:42  INFO        DFC Africa Data Collection
+2026-03-26 16:25:42  INFO      =======================================================
+2026-03-26 16:25:42  INFO      ── DFC.gov: active projects ─────────────────────────
+2026-03-26 16:25:43  ERROR       GET failed [https://www.dfc.gov/our-work/active-projects]: 404 Client Error: Not Found for url: https://www.dfc.gov/our-work/active-projects
+2026-03-26 16:25:43  INFO      ── DFC.gov: board meeting notices ───────────────────
+2026-03-26 16:25:44  ERROR       GET failed [https://www.dfc.gov/about/board-meetings]: 404 Client Error: Not Found for url: https://www.dfc.gov/about/board-meetings
+2026-03-26 16:25:44  INFO      ── DFC.gov: impact stories ──────────────────────────
+2026-03-26 16:25:44  ERROR       GET failed [https://www.dfc.gov/our-work/impact]: 404 Client Error: Not Found for url: https://www.dfc.gov/our-work/impact
+2026-03-26 16:25:44  INFO      ── Federal Register: DFC Africa notices ─────────────
+2026-03-26 16:25:45  DEBUG       'Development Finance Corporation Africa': 0 notices
+2026-03-26 16:25:45  DEBUG       'DFC Africa': 0 notices
+2026-03-26 16:25:46  DEBUG       'OPIC Africa': 0 notices
+2026-03-26 16:25:46  DEBUG       'Overseas Private Investment Corporation Africa': 0 notices
+2026-03-26 16:25:47  WARNING     Federal Register returned no records.
+2026-03-26 16:25:47  INFO      ── USASpending.gov: DFC contracts ───────────────────
+2026-03-26 16:25:48  INFO        No more results after page 0
+2026-03-26 16:25:48  WARNING     USASpending returned no DFC records.
+2026-03-26 16:25:48  INFO      
+=======================================================
+2026-03-26 16:25:48  INFO        SUMMARY
+2026-03-26 16:25:48  INFO      =======================================================
+2026-03-26 16:25:48  INFO        DFC active projects (Africa)  : 0 rows
+2026-03-26 16:25:48  INFO        Board notices (Africa)        : 0 rows
+2026-03-26 16:25:48  INFO        Impact stories (Africa)       : 0 rows
+2026-03-26 16:25:48  INFO        Federal Register notices      : 0 rows
+2026-03-26 16:25:48  INFO        USASpending DFC (Africa)      : 0 rows
+2026-03-26 16:25:48  INFO      
+  Output files:
+2026-03-26 16:25:48  INFO      
+=======================================================
+2026-03-26 16:25:48  INFO        All done. Check output/ and raw_data/ folders.
+2026-03-26 16:25:48  INFO      =======================================================
+2026-03-26 16:29:16  INFO      =======================================================
+2026-03-26 16:29:16  INFO        DFC Africa Data Collection
+2026-03-26 16:29:16  INFO      =======================================================
+2026-03-26 16:29:16  INFO      ── DFC.gov: active projects ─────────────────────────
+2026-03-26 16:29:16  ERROR       GET failed [https://www.dfc.gov/our-work/active-projects]: 404 Client Error: Not Found for url: https://www.dfc.gov/our-work/active-projects
+2026-03-26 16:29:16  INFO      ── DFC.gov: board meeting notices ───────────────────
+2026-03-26 16:29:17  ERROR       GET failed [https://www.dfc.gov/about/board-meetings]: 404 Client Error: Not Found for url: https://www.dfc.gov/about/board-meetings
+2026-03-26 16:29:17  INFO      ── DFC.gov: impact stories ──────────────────────────
+2026-03-26 16:29:17  ERROR       GET failed [https://www.dfc.gov/our-work/impact]: 404 Client Error: Not Found for url: https://www.dfc.gov/our-work/impact
+2026-03-26 16:29:17  INFO      ── Federal Register: DFC Africa notices ─────────────
+2026-03-26 16:29:17  DEBUG       'Development Finance Corporation Africa': 0 notices
+2026-03-26 16:29:18  DEBUG       'DFC Africa': 0 notices
+2026-03-26 16:29:18  DEBUG       'OPIC Africa': 0 notices
+2026-03-26 16:29:19  DEBUG       'Overseas Private Investment Corporation Africa': 0 notices
+2026-03-26 16:29:19  WARNING     Federal Register returned no records.
+2026-03-26 16:29:19  INFO      ── USASpending.gov: DFC contracts ───────────────────
+2026-03-26 16:29:20  INFO        No more results after page 0
+2026-03-26 16:29:20  WARNING     USASpending returned no DFC records.
+2026-03-26 16:29:20  INFO      
+=======================================================
+2026-03-26 16:29:20  INFO        SUMMARY
+2026-03-26 16:29:20  INFO      =======================================================
+2026-03-26 16:29:20  INFO        DFC active projects (Africa)  : 0 rows
+2026-03-26 16:29:20  INFO        Board notices (Africa)        : 0 rows
+2026-03-26 16:29:20  INFO        Impact stories (Africa)       : 0 rows
+2026-03-26 16:29:20  INFO        Federal Register notices      : 0 rows
+2026-03-26 16:29:20  INFO        USASpending DFC (Africa)      : 0 rows
+2026-03-26 16:29:20  INFO      
+  Output files:
+2026-03-27 09:04:12  INFO      =======================================================
+2026-03-27 09:04:12  INFO        DFC Africa Data Collection
+2026-03-27 09:04:12  INFO      =======================================================
+2026-03-27 09:04:12  INFO      ── DFC.gov: transaction data ────────────────────────
+2026-03-27 09:04:12  INFO        Trying: https://www.dfc.gov/our-impact/transaction-data
+2026-03-27 09:04:13  INFO        Found data download: on all active DFC transactions as of September 30, 2024 -> /sites/default/files/media/documents/FY24%20DFC%20Annual%20Project%20Data_508.xlsx
+2026-03-27 09:04:13  INFO        Found data download: Investment Fund portfolio investments -> /sites/default/files/media/documents/2025-03-13T15_27_24.9984474Z-83-FY2024%20DFC%20Annual%20Subproject%20Data_508.xlsx
+2026-03-27 09:04:14  INFO        Trying: https://www.dfc.gov/what-we-do/active-projects
+2026-03-27 09:04:16  INFO        Trying: https://www.dfc.gov/what-we-offer/work-with-us/where-we-work
+2026-03-27 09:04:18  INFO        Transaction data saved -> C:\Users\mklar\DataProjects\mcc_data\output\dfc_active_projects_africa.xlsx (2 rows)
+2026-03-27 09:04:18  INFO      ── DFC.gov: investment stories ──────────────────────
+2026-03-27 09:04:18  INFO        Found 11 story links — following each...
+2026-03-27 09:04:32  INFO        Investment stories saved -> C:\Users\mklar\DataProjects\mcc_data\output\dfc_impact_stories.xlsx (7 rows)
+2026-03-27 09:04:32  INFO      ── DFC.gov: press releases ──────────────────────────
+2026-03-27 09:04:33  INFO        Found 12 press release links
+2026-03-27 09:04:44  INFO        Press releases saved -> C:\Users\mklar\DataProjects\mcc_data\output\dfc_press_releases_africa.xlsx (2 rows)
+2026-03-27 09:04:44  INFO      ── Federal Register: DFC Africa notices ─────────────
+2026-03-27 09:04:44  DEBUG       'Development Finance Corporation': 0 notices
+2026-03-27 09:04:45  DEBUG       'OPIC Africa': 0 notices
+2026-03-27 09:04:46  DEBUG       'Overseas Private Investment Corporation': 0 notices
+2026-03-27 09:04:46  DEBUG       'DFC Nigeria': 0 notices
+2026-03-27 09:04:47  DEBUG       'DFC Kenya': 0 notices
+2026-03-27 09:04:47  DEBUG       'DFC Ghana': 0 notices
+2026-03-27 09:04:48  DEBUG       'DFC Mozambique': 0 notices
+2026-03-27 09:04:49  DEBUG       'DFC South Africa': 0 notices
+2026-03-27 09:04:49  DEBUG       'DFC Ethiopia': 0 notices
+2026-03-27 09:04:50  DEBUG       'DFC Rwanda': 0 notices
+2026-03-27 09:04:51  DEBUG       'DFC Senegal': 0 notices
+2026-03-27 09:04:51  WARNING     Federal Register returned no Africa records.
+2026-03-27 09:04:51  INFO      ── USASpending.gov: DFC contracts ───────────────────
+2026-03-27 09:05:09  INFO        Found results with agency name: 'U.S. International Development Finance Corporation'
+2026-03-27 09:05:32  INFO        DFC all contracts    -> C:\Users\mklar\DataProjects\mcc_data\raw_data\usaspending_dfc_all.xlsx (1000 rows)
+2026-03-27 09:05:32  INFO        DFC Africa contracts -> C:\Users\mklar\DataProjects\mcc_data\output\usaspending_dfc_africa.xlsx (10 rows)
+2026-03-27 09:05:32  INFO      ── DFC.gov: sector pages ────────────────────────────
+2026-03-27 09:05:32  INFO        Scraping sector: Energy
+2026-03-27 09:05:42  INFO        Scraping sector: Food Security & Agribusiness
+2026-03-27 09:05:52  INFO        Scraping sector: Health
+2026-03-27 09:06:01  INFO        Scraping sector: Infrastructure & Critical Minerals
+2026-03-27 09:06:10  INFO        Scraping sector: Small Business & Financial Services
+2026-03-27 09:06:22  INFO        Sector data saved -> C:\Users\mklar\DataProjects\mcc_data\output\dfc_sectors_africa.xlsx
+2026-03-27 09:06:22  INFO          Detail rows : 58
+2026-03-27 09:06:22  INFO          Sectors     : 5
+2026-03-27 09:06:22  INFO      
+  Sector summary:
+2026-03-27 09:06:22  INFO                                   sector  africa_mentions                          countries
+                             Energy               13 Ghana; Senegal; Sierra Leone; Togo
+       Food Security & Agribusiness               12              Gabon; Niger; Senegal
+                             Health                8                     Kenya; Senegal
+ Infrastructure & Critical Minerals               14  DRC; Gabon; Senegal; South Africa
+Small Business & Financial Services               11                    Malawi; Senegal
+2026-03-27 09:06:22  INFO      
+=======================================================
+2026-03-27 09:06:22  INFO        SUMMARY
+2026-03-27 09:06:22  INFO      =======================================================
+2026-03-27 09:06:22  INFO        DFC transaction data (Africa) : 2 rows
+2026-03-27 09:06:22  INFO        Investment stories (Africa)   : 7 rows
+2026-03-27 09:06:22  INFO        Press releases (Africa)       : 2 rows
+2026-03-27 09:06:22  INFO        Federal Register notices      : 0 rows
+2026-03-27 09:06:22  INFO        USASpending DFC (Africa)      : 10 rows
+2026-03-27 09:06:22  INFO        Sector pages (Africa)         : 58 rows
+2026-03-27 09:06:22  INFO      
+  Output files:
+2026-03-27 09:06:22  INFO          output\dfc_active_projects_africa.xlsx
+2026-03-27 09:06:22  INFO          output\dfc_impact_stories.xlsx
+2026-03-27 09:06:22  INFO          output\dfc_press_releases_africa.xlsx
+2026-03-27 09:06:22  INFO          output\usaspending_dfc_africa.xlsx
+2026-03-27 09:06:22  INFO          output\dfc_sectors_africa.xlsx
+2026-03-27 09:22:24  INFO      =======================================================
+2026-03-27 09:22:24  INFO        DFC Africa Data Collection
+2026-03-27 09:22:24  INFO      =======================================================
+2026-03-27 09:22:24  INFO      ── DFC.gov: transaction data ────────────────────────
+2026-03-27 09:22:24  INFO        Trying: https://www.dfc.gov/our-impact/transaction-data
+2026-03-27 09:22:25  INFO        Found data download: on all active DFC transactions as of September 30, 2024 -> /sites/default/files/media/documents/FY24%20DFC%20Annual%20Project%20Data_508.xlsx
+2026-03-27 09:22:25  INFO        Found data download: Investment Fund portfolio investments -> /sites/default/files/media/documents/2025-03-13T15_27_24.9984474Z-83-FY2024%20DFC%20Annual%20Subproject%20Data_508.xlsx
+2026-03-27 09:22:26  INFO        Trying: https://www.dfc.gov/what-we-do/active-projects
+2026-03-27 09:22:28  INFO        Trying: https://www.dfc.gov/what-we-offer/work-with-us/where-we-work
+2026-03-27 09:22:28  INFO        Transaction data saved -> C:\Users\mklar\DataProjects\mcc_data\output\dfc_active_projects_africa.xlsx (2 rows)
+2026-03-27 09:22:28  INFO      ── DFC.gov: investment stories ──────────────────────
+2026-03-27 09:22:29  INFO        Found 11 story links — following each...
+2026-03-27 09:22:42  INFO        Investment stories saved -> C:\Users\mklar\DataProjects\mcc_data\output\dfc_impact_stories.xlsx (7 rows)
+2026-03-27 09:22:42  INFO      ── DFC.gov: press releases ──────────────────────────
+2026-03-27 09:22:43  INFO        Found 12 press release links
+2026-03-27 09:22:54  INFO        Press releases saved -> C:\Users\mklar\DataProjects\mcc_data\output\dfc_press_releases_africa.xlsx (2 rows)
+2026-03-27 09:22:54  INFO      ── Federal Register: DFC Africa notices ─────────────
+2026-03-27 09:22:54  DEBUG       'Development Finance Corporation': 0 notices
+2026-03-27 09:22:55  DEBUG       'OPIC Africa': 0 notices
+2026-03-27 09:22:55  DEBUG       'Overseas Private Investment Corporation': 0 notices
+2026-03-27 09:22:56  DEBUG       'DFC Nigeria': 0 notices
+2026-03-27 09:22:56  DEBUG       'DFC Kenya': 0 notices
+2026-03-27 09:22:57  DEBUG       'DFC Ghana': 0 notices
+2026-03-27 09:22:58  DEBUG       'DFC Mozambique': 0 notices
+2026-03-27 09:22:59  DEBUG       'DFC South Africa': 0 notices
+2026-03-27 09:22:59  DEBUG       'DFC Ethiopia': 0 notices
+2026-03-27 09:23:00  DEBUG       'DFC Rwanda': 0 notices
+2026-03-27 09:23:01  DEBUG       'DFC Senegal': 0 notices
+2026-03-27 09:23:01  WARNING     Federal Register returned no Africa records.
+2026-03-27 09:23:01  INFO      ── USASpending.gov: DFC contracts ───────────────────
+2026-03-27 09:23:17  INFO        Found results with agency name: 'U.S. International Development Finance Corporation'
+2026-03-27 09:23:41  INFO        DFC all contracts    -> C:\Users\mklar\DataProjects\mcc_data\raw_data\usaspending_dfc_all.xlsx (1000 rows)
+2026-03-27 09:23:41  INFO        DFC Africa contracts -> C:\Users\mklar\DataProjects\mcc_data\output\usaspending_dfc_africa.xlsx (10 rows)
+2026-03-27 09:23:41  INFO      ── DFC.gov: sector pages ────────────────────────────
+2026-03-27 09:23:41  INFO        Scraping sector: Energy
+2026-03-27 09:23:51  INFO        Scraping sector: Food Security & Agribusiness
+2026-03-27 09:24:01  INFO        Scraping sector: Health
+2026-03-27 09:24:09  INFO        Scraping sector: Infrastructure & Critical Minerals
+2026-03-27 09:24:19  INFO        Scraping sector: Small Business & Financial Services
+2026-03-27 09:24:28  INFO        Sector data saved -> C:\Users\mklar\DataProjects\mcc_data\output\dfc_sectors_africa.xlsx
+2026-03-27 09:24:28  INFO          Detail rows : 0
+2026-03-27 09:24:28  INFO          Sectors     : 0
+2026-03-27 09:24:28  INFO      
+  Sector summary:
+2026-03-27 09:24:28  INFO      Empty DataFrame
+Columns: [sector, africa_mentions, countries]
+Index: []
+2026-03-27 09:24:28  INFO      
+=======================================================
+2026-03-27 09:24:28  INFO        SUMMARY
+2026-03-27 09:24:28  INFO      =======================================================
+2026-03-27 09:24:28  INFO        DFC transaction data (Africa) : 2 rows
+2026-03-27 09:24:28  INFO        Investment stories (Africa)   : 7 rows
+2026-03-27 09:24:28  INFO        Press releases (Africa)       : 2 rows
+2026-03-27 09:24:28  INFO        Federal Register notices      : 0 rows
+2026-03-27 09:24:28  INFO        USASpending DFC (Africa)      : 10 rows
+2026-03-27 09:24:28  INFO        Sector pages (Africa)         : 0 rows
+2026-03-27 09:24:28  INFO      
+  Output files:
+2026-03-27 09:24:28  INFO          output\dfc_active_projects_africa.xlsx
+2026-03-27 09:24:28  INFO          output\dfc_impact_stories.xlsx
+2026-03-27 09:24:28  INFO          output\dfc_press_releases_africa.xlsx
+2026-03-27 09:24:28  INFO          output\usaspending_dfc_africa.xlsx
+2026-03-27 09:24:28  INFO          output\dfc_sectors_africa.xlsx
+2026-03-27 09:29:24  INFO      =======================================================
+2026-03-27 09:29:24  INFO        DFC Africa Data Collection
+2026-03-27 09:29:24  INFO      =======================================================
+2026-03-27 09:29:24  INFO      ── DFC.gov: transaction data ────────────────────────
+2026-03-27 09:29:24  INFO        Trying: https://www.dfc.gov/our-impact/transaction-data
+2026-03-27 09:29:25  INFO        Found data download: on all active DFC transactions as of September 30, 2024 -> /sites/default/files/media/documents/FY24%20DFC%20Annual%20Project%20Data_508.xlsx
+2026-03-27 09:29:25  INFO        Found data download: Investment Fund portfolio investments -> /sites/default/files/media/documents/2025-03-13T15_27_24.9984474Z-83-FY2024%20DFC%20Annual%20Subproject%20Data_508.xlsx
+2026-03-27 09:29:26  INFO        Trying: https://www.dfc.gov/what-we-do/active-projects
+2026-03-27 09:29:28  INFO        Trying: https://www.dfc.gov/what-we-offer/work-with-us/where-we-work
+2026-03-27 09:29:29  INFO        Transaction data saved -> C:\Users\mklar\DataProjects\mcc_data\output\dfc_active_projects_africa.xlsx (2 rows)
+2026-03-27 09:29:29  INFO      ── DFC.gov: investment stories ──────────────────────
+2026-03-27 09:29:29  INFO        Found 11 story links — following each...
+2026-03-27 09:29:44  INFO        Investment stories saved -> C:\Users\mklar\DataProjects\mcc_data\output\dfc_impact_stories.xlsx (7 rows)
+2026-03-27 09:29:44  INFO      ── DFC.gov: press releases ──────────────────────────
+2026-03-27 09:29:44  INFO        Found 12 press release links
+2026-03-27 09:29:55  INFO        Press releases saved -> C:\Users\mklar\DataProjects\mcc_data\output\dfc_press_releases_africa.xlsx (2 rows)
+2026-03-27 09:29:55  INFO      ── Federal Register: DFC Africa notices ─────────────
+2026-03-27 09:29:56  DEBUG       'Development Finance Corporation': 0 notices
+2026-03-27 09:29:56  DEBUG       'OPIC Africa': 0 notices
+2026-03-27 09:29:57  DEBUG       'Overseas Private Investment Corporation': 0 notices
+2026-03-27 09:29:58  DEBUG       'DFC Nigeria': 0 notices
+2026-03-27 09:29:58  DEBUG       'DFC Kenya': 0 notices
+2026-03-27 09:29:59  DEBUG       'DFC Ghana': 0 notices
+2026-03-27 09:29:59  DEBUG       'DFC Mozambique': 0 notices
+2026-03-27 09:30:00  DEBUG       'DFC South Africa': 0 notices
+2026-03-27 09:30:01  DEBUG       'DFC Ethiopia': 0 notices
+2026-03-27 09:30:02  DEBUG       'DFC Rwanda': 0 notices
+2026-03-27 09:30:02  DEBUG       'DFC Senegal': 0 notices
+2026-03-27 09:30:03  WARNING     Federal Register returned no Africa records.
+2026-03-27 09:30:03  INFO      ── USASpending.gov: DFC contracts ───────────────────
+2026-03-27 09:30:18  INFO        Found results with agency name: 'U.S. International Development Finance Corporation'
+2026-03-27 09:30:42  INFO        DFC all contracts    -> C:\Users\mklar\DataProjects\mcc_data\raw_data\usaspending_dfc_all.xlsx (1000 rows)
+2026-03-27 09:30:42  INFO        DFC Africa contracts -> C:\Users\mklar\DataProjects\mcc_data\output\usaspending_dfc_africa.xlsx (10 rows)
+2026-03-27 09:30:42  INFO      ── DFC.gov: sector pages ────────────────────────────
+2026-03-27 09:30:42  INFO        Scraping sector: Energy
+2026-03-27 09:30:51  INFO        Scraping sector: Food Security & Agribusiness
+2026-03-27 09:31:01  INFO        Scraping sector: Health
+2026-03-27 09:31:09  INFO        Scraping sector: Infrastructure & Critical Minerals
+2026-03-27 09:31:20  INFO        Scraping sector: Small Business & Financial Services
+2026-03-27 09:31:29  INFO        Sector data saved -> C:\Users\mklar\DataProjects\mcc_data\output\dfc_sectors_africa.xlsx
+2026-03-27 09:31:29  INFO          Detail rows : 0
+2026-03-27 09:31:29  INFO          Sectors     : 0
+2026-03-27 09:31:29  INFO      
+  Sector summary:
+2026-03-27 09:31:29  INFO      Empty DataFrame
+Columns: [sector, africa_mentions, countries]
+Index: []
+2026-03-27 09:31:29  INFO      
+=======================================================
+2026-03-27 09:31:29  INFO        SUMMARY
+2026-03-27 09:31:29  INFO      =======================================================
+2026-03-27 09:31:29  INFO        DFC transaction data (Africa) : 2 rows
+2026-03-27 09:31:29  INFO        Investment stories (Africa)   : 7 rows
+2026-03-27 09:31:29  INFO        Press releases (Africa)       : 2 rows
+2026-03-27 09:31:29  INFO        Federal Register notices      : 0 rows
+2026-03-27 09:31:29  INFO        USASpending DFC (Africa)      : 10 rows
+2026-03-27 09:31:29  INFO        Sector pages (Africa)         : 0 rows
+2026-03-27 09:31:29  INFO      
+  Output files:
+2026-03-27 09:31:29  INFO          output\dfc_active_projects_africa.xlsx
+2026-03-27 09:31:29  INFO          output\dfc_impact_stories.xlsx
+2026-03-27 09:31:29  INFO          output\dfc_press_releases_africa.xlsx
+2026-03-27 09:31:29  INFO          output\usaspending_dfc_africa.xlsx
+2026-03-27 09:31:29  INFO          output\dfc_sectors_africa.xlsx
+2026-03-27 09:41:09  INFO      =======================================================
+2026-03-27 09:41:09  INFO        DFC Africa Data Collection
+2026-03-27 09:41:09  INFO      =======================================================
+2026-03-27 09:41:09  INFO      ── DFC.gov: transaction data ────────────────────────
+2026-03-27 09:41:09  INFO        Trying: https://www.dfc.gov/our-impact/transaction-data
+2026-03-27 09:41:10  INFO        Found data download: on all active DFC transactions as of September 30, 2024 -> /sites/default/files/media/documents/FY24%20DFC%20Annual%20Project%20Data_508.xlsx
+2026-03-27 09:41:10  INFO        Found data download: Investment Fund portfolio investments -> /sites/default/files/media/documents/2025-03-13T15_27_24.9984474Z-83-FY2024%20DFC%20Annual%20Subproject%20Data_508.xlsx
+2026-03-27 09:41:11  INFO        Trying: https://www.dfc.gov/what-we-do/active-projects
+2026-03-27 09:41:12  INFO        Trying: https://www.dfc.gov/what-we-offer/work-with-us/where-we-work
+2026-03-27 09:41:13  INFO        Transaction data saved -> C:\Users\mklar\DataProjects\mcc_data\output\dfc_active_projects_africa.xlsx (2 rows)
+2026-03-27 09:41:13  INFO      ── DFC.gov: investment stories ──────────────────────
+2026-03-27 09:41:13  INFO        Found 11 story links — following each...
+2026-03-27 09:41:27  INFO        Investment stories saved -> C:\Users\mklar\DataProjects\mcc_data\output\dfc_impact_stories.xlsx (7 rows)
+2026-03-27 09:41:27  INFO      ── DFC.gov: press releases ──────────────────────────
+2026-03-27 09:41:28  INFO        Found 12 press release links
+2026-03-27 09:41:38  INFO        Press releases saved -> C:\Users\mklar\DataProjects\mcc_data\output\dfc_press_releases_africa.xlsx (2 rows)
+2026-03-27 09:41:38  INFO      ── Federal Register: DFC Africa notices ─────────────
+2026-03-27 09:41:39  INFO        FR query returned 100 notices (total: 530)
+2026-03-27 09:51:49  INFO      =======================================================
+2026-03-27 09:51:49  INFO        DFC Africa Data Collection
+2026-03-27 09:51:49  INFO      =======================================================
+2026-03-27 09:51:49  INFO      ── DFC.gov: transaction data ────────────────────────
+2026-03-27 09:51:49  INFO        Trying: https://www.dfc.gov/our-impact/transaction-data
+2026-03-27 09:51:49  INFO        Found data download: on all active DFC transactions as of September 30, 2024 -> /sites/default/files/media/documents/FY24%20DFC%20Annual%20Project%20Data_508.xlsx
+2026-03-27 09:51:49  INFO        Found data download: Investment Fund portfolio investments -> /sites/default/files/media/documents/2025-03-13T15_27_24.9984474Z-83-FY2024%20DFC%20Annual%20Subproject%20Data_508.xlsx
+2026-03-27 09:51:49  INFO        Downloading: https://www.dfc.gov/sites/default/files/media/documents/FY24%20DFC%20Annual%20Project%20Data_508.xlsx
+2026-03-27 09:51:52  INFO        Excel downloaded: 2 rows -> C:\Users\mklar\DataProjects\mcc_data\raw_data\dfc_raw_download.xlsx
+2026-03-27 09:51:52  INFO        Africa rows: 0
+2026-03-27 09:51:52  INFO      ── DFC.gov: investment stories ──────────────────────
+2026-03-27 09:51:52  INFO        Found 11 story links — following each...
+2026-03-27 09:52:06  INFO        Investment stories saved -> C:\Users\mklar\DataProjects\mcc_data\output\dfc_impact_stories.xlsx (7 rows)
+2026-03-27 09:52:06  INFO      ── DFC.gov: press releases ──────────────────────────
+2026-03-27 09:52:07  INFO        Found 12 press release links
+2026-03-27 09:52:17  INFO        Press releases saved -> C:\Users\mklar\DataProjects\mcc_data\output\dfc_press_releases_africa.xlsx (2 rows)
+2026-03-27 09:52:17  INFO      ── Federal Register: DFC Africa notices ─────────────
+2026-03-27 09:52:18  INFO        FR query returned 100 notices (total: 530)
+2026-03-27 09:52:19  INFO        FR query returned 100 notices (total: 5494)
+2026-03-27 09:52:20  INFO        FR all notices    -> C:\Users\mklar\DataProjects\mcc_data\raw_data\dfc_board_notices_raw.xlsx (188 rows)
+2026-03-27 09:52:20  INFO        FR Africa notices -> C:\Users\mklar\DataProjects\mcc_data\output\dfc_federal_register_africa.xlsx (1 rows)
+2026-03-27 09:52:20  INFO      ── USASpending.gov: DFC contracts ───────────────────
+2026-03-27 09:52:34  INFO        Found results with agency name: 'U.S. International Development Finance Corporation'
+2026-03-27 09:52:58  INFO        DFC all contracts    -> C:\Users\mklar\DataProjects\mcc_data\raw_data\usaspending_dfc_all.xlsx (1000 rows)
+2026-03-27 09:52:58  INFO        DFC Africa contracts -> C:\Users\mklar\DataProjects\mcc_data\output\usaspending_dfc_africa.xlsx (10 rows)
+2026-03-27 09:52:58  INFO      ── DFC.gov: sector pages ────────────────────────────
+2026-03-27 09:52:58  INFO        Scraping sector: Energy
+2026-03-27 09:52:59  INFO          + Financing Sierra Leone’s first major utility-scale power plant [Sierra Leone]
+2026-03-27 09:53:00  INFO          + Tripling electricity generating capacity in Togo [Ghana]
+2026-03-27 09:53:02  INFO          + “Friendshoring” rare earths processing [Mozambique]
+2026-03-27 09:53:04  INFO          + Investing in Africa’s first potash mine to reduce dependence on Russia [Gabon]
+2026-03-27 09:53:06  INFO          + Expanding rare earth processing in Angola for production in the U.S. [Angola]
+2026-03-27 09:53:07  INFO          + Helping an American IT business expand into Sub-Saharan Africa [Senegal]
+2026-03-27 09:53:12  INFO          + Strengthening critical mineral supply chains by countering China’s dom [South Africa]
+2026-03-27 09:53:13  INFO        Scraping sector: Food Security & Agribusiness
+2026-03-27 09:53:13  INFO          + Investing in Africa’s first potash mine to reduce dependence on Russia [Gabon]
+2026-03-27 09:53:15  INFO          + Investing in food security in Niger [Niger]
+2026-03-27 09:53:17  INFO          + “Friendshoring” rare earths processing [Mozambique]
+2026-03-27 09:53:19  INFO          + Expanding rare earth processing in Angola for production in the U.S. [Angola]
+2026-03-27 09:53:20  INFO          + Helping an American IT business expand into Sub-Saharan Africa [Senegal]
+2026-03-27 09:53:24  INFO          + Strengthening critical mineral supply chains by countering China’s dom [South Africa]
+2026-03-27 09:53:25  INFO        Scraping sector: Health
+2026-03-27 09:53:26  INFO          + Expanding access to medical oxygen in Kenya [Kenya]
+2026-03-27 09:53:29  INFO          + “Friendshoring” rare earths processing [Mozambique]
+2026-03-27 09:53:31  INFO          + Investing in Africa’s first potash mine to reduce dependence on Russia [Gabon]
+2026-03-27 09:53:32  INFO          + Expanding rare earth processing in Angola for production in the U.S. [Angola]
+2026-03-27 09:53:34  INFO          + Helping an American IT business expand into Sub-Saharan Africa [Senegal]
+2026-03-27 09:53:38  INFO          + Strengthening critical mineral supply chains by countering China’s dom [South Africa]
+2026-03-27 09:53:39  INFO        Scraping sector: Infrastructure & Critical Minerals
+2026-03-27 09:53:40  INFO          + Strengthening critical mineral supply chains by countering China’s dom [South Africa]
+2026-03-27 09:53:41  INFO          + Helping Gabon grow exports and diversify its economy [Gabon]
+2026-03-27 09:53:44  INFO          + “Friendshoring” rare earths processing [Mozambique]
+2026-03-27 09:53:47  INFO          + Investing in Africa’s first potash mine to reduce dependence on Russia [Gabon]
+2026-03-27 09:53:48  INFO          + Expanding rare earth processing in Angola for production in the U.S. [Angola]
+2026-03-27 09:53:50  INFO          + Helping an American IT business expand into Sub-Saharan Africa [Senegal]
+2026-03-27 09:53:52  INFO        Scraping sector: Small Business & Financial Services
+2026-03-27 09:53:53  INFO          + De-risking small business and agriculture loans in Malawi [Malawi]
+2026-03-27 09:53:55  INFO          + “Friendshoring” rare earths processing [Mozambique]
+2026-03-27 09:53:57  INFO          + Investing in Africa’s first potash mine to reduce dependence on Russia [Gabon]
+2026-03-27 09:53:59  INFO          + Expanding rare earth processing in Angola for production in the U.S. [Angola]
+2026-03-27 09:54:00  INFO          + Helping an American IT business expand into Sub-Saharan Africa [Senegal]
+2026-03-27 09:54:04  INFO          + Strengthening critical mineral supply chains by countering China’s dom [South Africa]
+2026-03-27 09:54:05  INFO        Sector data saved -> C:\Users\mklar\DataProjects\mcc_data\output\dfc_sectors_africa.xlsx
+2026-03-27 09:54:05  INFO          Detail rows : 31
+2026-03-27 09:54:05  INFO          Sectors     : 5
+2026-03-27 09:54:05  INFO      
+  Sector summary:
+2026-03-27 09:54:05  INFO                                   sector  africa_projects                                                             countries
+                             Energy                7 Angola; Gabon; Ghana; Mozambique; Senegal; Sierra Leone; South Africa
+       Food Security & Agribusiness                6               Angola; Gabon; Mozambique; Niger; Senegal; South Africa
+                             Health                6               Angola; Gabon; Kenya; Mozambique; Senegal; South Africa
+ Infrastructure & Critical Minerals                6                      Angola; Gabon; Mozambique; Senegal; South Africa
+Small Business & Financial Services                6              Angola; Gabon; Malawi; Mozambique; Senegal; South Africa
+2026-03-27 09:54:05  INFO      
+=======================================================
+2026-03-27 09:54:05  INFO        SUMMARY
+2026-03-27 09:54:05  INFO      =======================================================
+2026-03-27 09:54:05  INFO        DFC transaction data (Africa) : 0 rows
+2026-03-27 09:54:05  INFO        Investment stories (Africa)   : 7 rows
+2026-03-27 09:54:05  INFO        Press releases (Africa)       : 2 rows
+2026-03-27 09:54:05  INFO        Federal Register notices      : 1 rows
+2026-03-27 09:54:05  INFO        USASpending DFC (Africa)      : 10 rows
+2026-03-27 09:54:05  INFO        Sector pages (Africa)         : 31 rows
+2026-03-27 09:54:05  INFO      
+  Output files:
+2026-03-27 09:54:05  INFO          output\dfc_active_projects_africa.xlsx
+2026-03-27 09:54:05  INFO          output\dfc_impact_stories.xlsx
+2026-03-27 09:54:05  INFO          output\dfc_press_releases_africa.xlsx
+2026-03-27 09:54:05  INFO          output\dfc_federal_register_africa.xlsx
+2026-03-27 09:54:05  INFO          output\usaspending_dfc_africa.xlsx
+2026-03-27 09:54:05  INFO          output\dfc_sectors_africa.xlsx
+2026-03-27 10:09:31  INFO      =======================================================
+2026-03-27 10:09:31  INFO        DFC Africa Data Collection
+2026-03-27 10:09:31  INFO      =======================================================
+2026-03-27 10:09:31  INFO      ── DFC.gov: transaction data ────────────────────────
+2026-03-27 10:09:31  INFO        Trying: https://www.dfc.gov/our-impact/transaction-data
+2026-03-27 10:09:32  INFO        Found data download: on all active DFC transactions as of September 30, 2024 -> /sites/default/files/media/documents/FY24%20DFC%20Annual%20Project%20Data_508.xlsx
+2026-03-27 10:09:32  INFO        Found data download: Investment Fund portfolio investments -> /sites/default/files/media/documents/2025-03-13T15_27_24.9984474Z-83-FY2024%20DFC%20Annual%20Subproject%20Data_508.xlsx
+2026-03-27 10:09:32  INFO        Downloading: https://www.dfc.gov/sites/default/files/media/documents/FY24%20DFC%20Annual%20Project%20Data_508.xlsx
+2026-03-27 10:09:33  INFO        Sheets found: ['Table of Contents', 'Read Me', 'Project Data']
+2026-03-27 10:09:33  INFO        Reading sheet: 'Project Data'
+2026-03-27 10:09:34  INFO        Columns: ['Fiscal Year', 'Project Number', 'Project Type', 'Region', 'Country', 'Department', 'Framework', 'Project Name', 'Committed', 'NAICS Sector', 'Project Description', 'Project Profile URL', 'Exposure', 'Originating Agency', 'Country Income Level', 'Support Type', 'Source of Funding', 'Currency', 'Sovereign (Yes/No)', 'Estimated Term (Years)', 'Environmental and Social Risk Category', '2X identifier', '2X Qualifying Criteria', 'IQ Tier']
+2026-03-27 10:09:34  INFO        Total rows: 1314
+2026-03-27 10:09:34  INFO        Raw data saved -> C:\Users\mklar\DataProjects\mcc_data\raw_data\dfc_raw_download.xlsx
+2026-03-27 10:09:34  INFO        Africa rows (Region filter): 360
+2026-03-27 10:09:35  INFO      ── DFC.gov: investment stories ──────────────────────
+2026-03-27 10:09:35  INFO        Found 11 story links — following each...
+2026-03-27 10:09:50  INFO        Investment stories saved -> C:\Users\mklar\DataProjects\mcc_data\output\dfc_impact_stories.xlsx (7 rows)
+2026-03-27 10:09:50  INFO      ── DFC.gov: press releases ──────────────────────────
+2026-03-27 10:09:50  INFO        Found 12 press release links
+2026-03-27 10:10:00  INFO        Press releases saved -> C:\Users\mklar\DataProjects\mcc_data\output\dfc_press_releases_africa.xlsx (2 rows)
+2026-03-27 10:10:00  INFO      ── Federal Register: DFC Africa notices ─────────────
+2026-03-27 10:10:01  INFO        FR query returned 100 notices (total: 530)
+2026-03-27 10:10:04  INFO        FR query returned 100 notices (total: 5494)
+2026-03-27 10:10:05  INFO        FR all notices    -> C:\Users\mklar\DataProjects\mcc_data\raw_data\dfc_board_notices_raw.xlsx (188 rows)
+2026-03-27 10:10:05  INFO        FR Africa notices -> C:\Users\mklar\DataProjects\mcc_data\output\dfc_federal_register_africa.xlsx (1 rows)
+2026-03-27 10:10:05  INFO      ── USASpending.gov: DFC contracts ───────────────────
+2026-03-27 10:10:21  INFO        Found results with agency name: 'U.S. International Development Finance Corporation'
+2026-03-27 10:10:46  INFO        DFC all contracts    -> C:\Users\mklar\DataProjects\mcc_data\raw_data\usaspending_dfc_all.xlsx (1000 rows)
+2026-03-27 10:10:46  INFO        DFC Africa contracts -> C:\Users\mklar\DataProjects\mcc_data\output\usaspending_dfc_africa.xlsx (10 rows)
+2026-03-27 10:10:46  INFO      ── DFC.gov: sector pages ────────────────────────────
+2026-03-27 10:10:46  INFO        Scraping sector: Energy
+2026-03-27 10:10:46  INFO          + Financing Sierra Leone’s first major utility-scale power plant [Sierra Leone]
+2026-03-27 10:10:48  INFO          + Tripling electricity generating capacity in Togo [Ghana]
+2026-03-27 10:10:50  INFO          + “Friendshoring” rare earths processing [Mozambique]
+2026-03-27 10:10:53  INFO          + Investing in Africa’s first potash mine to reduce dependence on Russia [Gabon]
+2026-03-27 10:10:54  INFO          + Expanding rare earth processing in Angola for production in the U.S. [Angola]
+2026-03-27 10:10:56  INFO          + Helping an American IT business expand into Sub-Saharan Africa [Senegal]
+2026-03-27 10:10:59  INFO          + Strengthening critical mineral supply chains by countering China’s dom [South Africa]
+2026-03-27 10:11:00  INFO        Scraping sector: Food Security & Agribusiness
+2026-03-27 10:11:01  INFO          + Investing in Africa’s first potash mine to reduce dependence on Russia [Gabon]
+2026-03-27 10:11:02  INFO          + Investing in food security in Niger [Niger]
+2026-03-27 10:11:05  INFO          + “Friendshoring” rare earths processing [Mozambique]
+2026-03-27 10:11:07  INFO          + Expanding rare earth processing in Angola for production in the U.S. [Angola]
+2026-03-27 10:11:08  INFO          + Helping an American IT business expand into Sub-Saharan Africa [Senegal]
+2026-03-27 10:11:13  INFO          + Strengthening critical mineral supply chains by countering China’s dom [South Africa]
+2026-03-27 10:11:14  INFO        Scraping sector: Health
+2026-03-27 10:11:14  INFO          + Expanding access to medical oxygen in Kenya [Kenya]
+2026-03-27 10:11:16  INFO          + “Friendshoring” rare earths processing [Mozambique]
+2026-03-27 10:11:19  INFO          + Investing in Africa’s first potash mine to reduce dependence on Russia [Gabon]
+2026-03-27 10:11:20  INFO          + Expanding rare earth processing in Angola for production in the U.S. [Angola]
+2026-03-27 10:11:22  INFO          + Helping an American IT business expand into Sub-Saharan Africa [Senegal]
+2026-03-27 10:11:26  INFO          + Strengthening critical mineral supply chains by countering China’s dom [South Africa]
+2026-03-27 10:11:27  INFO        Scraping sector: Infrastructure & Critical Minerals
+2026-03-27 10:11:27  INFO          + Strengthening critical mineral supply chains by countering China’s dom [South Africa]
+2026-03-27 10:11:29  INFO          + Helping Gabon grow exports and diversify its economy [Gabon]
+2026-03-27 10:11:32  INFO          + “Friendshoring” rare earths processing [Mozambique]
+2026-03-27 10:11:34  INFO          + Investing in Africa’s first potash mine to reduce dependence on Russia [Gabon]
+2026-03-27 10:11:35  INFO          + Expanding rare earth processing in Angola for production in the U.S. [Angola]
+2026-03-27 10:11:37  INFO          + Helping an American IT business expand into Sub-Saharan Africa [Senegal]
+2026-03-27 10:11:40  INFO        Scraping sector: Small Business & Financial Services
+2026-03-27 10:11:40  INFO          + De-risking small business and agriculture loans in Malawi [Malawi]
+2026-03-27 10:11:43  INFO          + “Friendshoring” rare earths processing [Mozambique]
+2026-03-27 10:11:45  INFO          + Investing in Africa’s first potash mine to reduce dependence on Russia [Gabon]
+2026-03-27 10:11:46  INFO          + Expanding rare earth processing in Angola for production in the U.S. [Angola]
+2026-03-27 10:11:48  INFO          + Helping an American IT business expand into Sub-Saharan Africa [Senegal]
+2026-03-27 10:11:52  INFO          + Strengthening critical mineral supply chains by countering China’s dom [South Africa]
+2026-03-27 10:11:53  INFO        Sector data saved -> C:\Users\mklar\DataProjects\mcc_data\output\dfc_sectors_africa.xlsx
+2026-03-27 10:11:53  INFO          Detail rows : 31
+2026-03-27 10:11:53  INFO          Sectors     : 5
+2026-03-27 10:11:53  INFO      
+  Sector summary:
+2026-03-27 10:11:53  INFO                                   sector  africa_projects                                                             countries
+                             Energy                7 Angola; Gabon; Ghana; Mozambique; Senegal; Sierra Leone; South Africa
+       Food Security & Agribusiness                6               Angola; Gabon; Mozambique; Niger; Senegal; South Africa
+                             Health                6               Angola; Gabon; Kenya; Mozambique; Senegal; South Africa
+ Infrastructure & Critical Minerals                6                      Angola; Gabon; Mozambique; Senegal; South Africa
+Small Business & Financial Services                6              Angola; Gabon; Malawi; Mozambique; Senegal; South Africa
+2026-03-27 10:11:53  INFO      
+=======================================================
+2026-03-27 10:11:53  INFO        SUMMARY
+2026-03-27 10:11:53  INFO      =======================================================
+2026-03-27 10:11:53  INFO        DFC transaction data (Africa) : 360 rows
+2026-03-27 10:11:53  INFO        Investment stories (Africa)   : 7 rows
+2026-03-27 10:11:53  INFO        Press releases (Africa)       : 2 rows
+2026-03-27 10:11:53  INFO        Federal Register notices      : 1 rows
+2026-03-27 10:11:53  INFO        USASpending DFC (Africa)      : 10 rows
+2026-03-27 10:11:53  INFO        Sector pages (Africa)         : 31 rows
+2026-03-27 10:11:53  INFO      
+  Output files:
+2026-03-27 10:11:53  INFO          output\dfc_active_projects_africa.xlsx
+2026-03-27 10:11:53  INFO          output\dfc_impact_stories.xlsx
+2026-03-27 10:11:53  INFO          output\dfc_press_releases_africa.xlsx
+2026-03-27 10:11:53  INFO          output\dfc_federal_register_africa.xlsx
+2026-03-27 10:11:53  INFO          output\usaspending_dfc_africa.xlsx
+2026-03-27 10:11:53  INFO          output\dfc_sectors_africa.xlsx
+2026-03-27 11:27:23  INFO      =======================================================
+2026-03-27 11:27:23  INFO        Building master Excel workbook
+2026-03-27 11:27:23  INFO      =======================================================
+2026-03-27 11:27:23  INFO        Loaded usaspending_africa: 192 rows
+2026-03-27 11:27:23  INFO        Loaded usaspending_recipients: 100 rows
+2026-03-27 11:27:23  INFO        Loaded mcc_countries: 22 rows
+2026-03-27 11:27:23  INFO        Loaded dfc_active_projects: 360 rows
+2026-03-27 11:27:23  INFO        Loaded dfc_impact_stories: 7 rows
+2026-03-27 11:27:23  INFO        Loaded dfc_board_africa: 2 rows
+2026-03-27 11:27:23  INFO        Loaded dfc_federal_register: 1 rows
+2026-03-27 11:27:23  INFO        Loaded dfc_usaspending: 10 rows
+2026-03-27 11:27:24  INFO        Loaded dfc_sectors: 31 rows
+2026-03-27 11:27:24  INFO        Written: '00 Summary' (4 rows)
+2026-03-27 11:27:24  INFO        Written: 'MCC — Awards by Year' (20 rows)
+2026-03-27 11:27:24  WARNING     Skipping empty sheet: MCC — Awards by Country
+2026-03-27 11:27:24  INFO        Written: 'MCC — Top Recipients (Africa)' (20 rows)
+2026-03-27 11:27:24  INFO        Written: 'MCC — All Africa Awards' (192 rows)
+2026-03-27 11:27:24  INFO        Written: 'MCC — All Recipients' (100 rows)
+2026-03-27 11:27:24  INFO        Written: 'MCC — Country Pages' (22 rows)
+2026-03-27 11:27:24  INFO        Written: 'DFC — Projects by Year' (34 rows)
+2026-03-27 11:27:24  INFO        Written: 'DFC — Projects by Country' (38 rows)
+2026-03-27 11:27:24  INFO        Written: 'DFC — Projects by Sector' (16 rows)
+2026-03-27 11:27:24  INFO        Written: 'DFC — All Africa Projects' (360 rows)
+2026-03-27 11:27:24  INFO        Written: 'DFC — Investment Stories' (7 rows)
+2026-03-27 11:27:24  INFO        Written: 'DFC — Press Releases' (2 rows)
+2026-03-27 11:27:24  INFO        Written: 'DFC — Federal Register' (1 rows)
+2026-03-27 11:27:24  INFO        Written: 'DFC — USASpending Contracts' (10 rows)
+2026-03-27 11:27:24  INFO        Written: 'DFC — Sector Stories' (31 rows)
+2026-03-27 11:27:24  INFO        Applying styles...
+2026-03-27 11:27:28  INFO      
+  Master workbook saved -> C:\Users\mklar\DataProjects\mcc_data\output\MCC_DFC_Africa_Master_2026-03-27.xlsx
+2026-03-27 11:30:12  INFO      =======================================================
+2026-03-27 11:30:12  INFO        Building master Excel workbook
+2026-03-27 11:30:12  INFO      =======================================================
+2026-03-27 11:30:12  INFO        Loaded usaspending_africa: 192 rows
+2026-03-27 11:30:12  INFO        Loaded usaspending_recipients: 100 rows
+2026-03-27 11:30:12  INFO        Loaded mcc_countries: 22 rows
+2026-03-27 11:30:12  INFO        Loaded dfc_active_projects: 360 rows
+2026-03-27 11:30:12  INFO        Loaded dfc_impact_stories: 7 rows
+2026-03-27 11:30:12  INFO        Loaded dfc_board_africa: 2 rows
+2026-03-27 11:30:12  INFO        Loaded dfc_federal_register: 1 rows
+2026-03-27 11:30:12  INFO        Loaded dfc_usaspending: 10 rows
+2026-03-27 11:30:12  INFO        Loaded dfc_sectors: 31 rows
+2026-03-27 11:30:12  INFO        Written: '00 Summary' (4 rows)
+2026-03-27 11:30:12  INFO        Written: 'MCC — Awards by Year' (20 rows)
+2026-03-27 11:30:12  WARNING     Skipping empty sheet: MCC — Awards by Country
+2026-03-27 11:30:12  INFO        Written: 'MCC — Top Recipients (Africa)' (20 rows)
+2026-03-27 11:30:12  INFO        Written: 'MCC — All Africa Awards' (192 rows)
+2026-03-27 11:30:12  INFO        Written: 'MCC — All Recipients' (100 rows)
+2026-03-27 11:30:12  INFO        Written: 'MCC — Country Pages' (22 rows)
+2026-03-27 11:30:12  INFO        Written: 'DFC — Projects by Year' (34 rows)
+2026-03-27 11:30:12  INFO        Written: 'DFC — Projects by Country' (38 rows)
+2026-03-27 11:30:12  INFO        Written: 'DFC — Projects by Sector' (16 rows)
+2026-03-27 11:30:12  INFO        Written: 'DFC — All Africa Projects' (360 rows)
+2026-03-27 11:30:12  INFO        Written: 'DFC — Investment Stories' (7 rows)
+2026-03-27 11:30:12  INFO        Written: 'DFC — Press Releases' (2 rows)
+2026-03-27 11:30:12  INFO        Written: 'DFC — Federal Register' (1 rows)
+2026-03-27 11:30:12  INFO        Written: 'DFC — USASpending Contracts' (10 rows)
+2026-03-27 11:30:12  INFO        Written: 'DFC — Sector Stories' (31 rows)
+2026-03-27 11:30:13  INFO        Applying styles...
+2026-03-27 11:30:16  INFO      
+  Master workbook saved -> C:\Users\mklar\DataProjects\mcc_data\output\MCC_DFC_Africa_Master_2026-03-27.xlsx
+2026-03-27 11:30:16  INFO        Sheets written: 15
+2026-03-27 11:30:16  INFO      
+  Done! Open the master workbook in Excel.
+2026-03-27 11:30:16  INFO        File: MCC_DFC_Africa_Master_2026-03-27.xlsx
