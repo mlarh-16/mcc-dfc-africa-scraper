@@ -26,9 +26,12 @@ from tqdm import tqdm
 
 from scripts.config import (
     AFRICA_DFC_COUNTRIES,
+    AFRICA_KEYWORDS,
     API_DELAY,
     AWARD_TYPE_CODES,
     CRAWL_DELAY,
+    MAX_PAGES,
+    MAX_PRESS_RELEASES,
     DFC_ACTIVE_PROJECTS,
     DFC_AGENCY_NAME,
     DFC_BASE_URL,
@@ -60,7 +63,9 @@ TODAY = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
 def _is_africa(text: str) -> bool:
     t = str(text).lower()
-    return any(c.lower() in t for c in AFRICA_DFC_COUNTRIES)
+    if any(re.search(r'\b' + re.escape(c.lower()) + r'\b', t) for c in AFRICA_DFC_COUNTRIES):
+        return True
+    return any(kw.lower() in t for kw in AFRICA_KEYWORDS)
 
 
 def _extract_amounts(text: str) -> list:
@@ -313,7 +318,7 @@ def scrape_dfc_investment_stories() -> pd.DataFrame:
             continue
 
         country = next(
-            (c for c in AFRICA_DFC_COUNTRIES if c.lower() in detail_text.lower()), ""
+            (c for c in AFRICA_DFC_COUNTRIES if re.search(r'\b' + re.escape(c.lower()) + r'\b', detail_text.lower())), ""
         )
         amounts = _extract_amounts(detail_text)
         jobs    = re.findall(r"[\d,]+\s*jobs?", detail_text, re.I)
@@ -373,7 +378,7 @@ def scrape_dfc_press_releases() -> pd.DataFrame:
     log.info(f"  Found {len(unique_prs)} press release links")
     records = []
 
-    for pr in tqdm(unique_prs[:50], desc="  Press releases"):
+    for pr in tqdm(unique_prs[:MAX_PRESS_RELEASES], desc="  Press releases"):
         r = _safe_get(pr["url"])
         if not r:
             continue
@@ -386,7 +391,7 @@ def scrape_dfc_press_releases() -> pd.DataFrame:
             continue
 
         country = next(
-            (c for c in AFRICA_DFC_COUNTRIES if c.lower() in detail_text.lower()), ""
+            (c for c in AFRICA_DFC_COUNTRIES if re.search(r'\b' + re.escape(c.lower()) + r'\b', detail_text.lower())), ""
         )
         amounts  = _extract_amounts(detail_text)
         date_tag = detail_soup.find(
@@ -407,8 +412,8 @@ def scrape_dfc_press_releases() -> pd.DataFrame:
         time.sleep(CRAWL_DELAY)
 
     df = pd.DataFrame(records)
-    df.to_excel(FILES["dfc_board_africa"], index=False)
-    log.info(f"  Press releases saved -> {FILES['dfc_board_africa']} ({len(df)} rows)")
+    df.to_excel(FILES["dfc_press_releases"], index=False)
+    log.info(f"  Press releases saved -> {FILES['dfc_press_releases']} ({len(df)} rows)")
     return df
 
 
@@ -527,7 +532,7 @@ def scrape_usaspending_dfc() -> pd.DataFrame:
             "page": 1,
         }
 
-        for page in range(1, 11):
+        for page in range(1, MAX_PAGES + 1):
             payload["page"] = page
             try:
                 resp = requests.post(url, json=payload, timeout=REQUEST_TIMEOUT)
@@ -659,7 +664,7 @@ def scrape_dfc_sectors() -> pd.DataFrame:
             ]
             description = " ".join(paras[:4])[:600]
             country     = next(
-                (c for c in AFRICA_DFC_COUNTRIES if c.lower() in detail_text.lower()), ""
+                (c for c in AFRICA_DFC_COUNTRIES if re.search(r'\b' + re.escape(c.lower()) + r'\b', detail_text.lower())), ""
             )
             amounts     = _extract_amounts(detail_text)
             jobs        = re.findall(r"[\d,]+\s*jobs?", detail_text, re.I)
@@ -695,7 +700,7 @@ def scrape_dfc_sectors() -> pd.DataFrame:
             africa_projects=("country", "count"),
             countries=("country", lambda x: "; ".join(sorted(set(x)))),
             firms=("us_firm", lambda x: "; ".join(
-                sorted(set(f for v in x for f in v.split("; ") if f))
+                sorted(set(f for v in x if pd.notna(v) for f in v.split("; ") if f))
             )),
         )
         .reset_index()
@@ -742,7 +747,7 @@ def main() -> None:
     log.info(f"  Sector pages (Africa)         : {len(df_sectors)} rows")
     log.info("\n  Output files:")
     dfc_keys = [
-        "dfc_active_projects", "dfc_impact_stories", "dfc_board_africa",
+        "dfc_active_projects", "dfc_impact_stories", "dfc_press_releases",
         "dfc_federal_register", "dfc_usaspending", "dfc_sectors",
     ]
     for key in dfc_keys:

@@ -134,7 +134,7 @@ def _mcc_by_year(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def _mcc_top_recipients_africa(df: pd.DataFrame, n: int = 20) -> pd.DataFrame:
-    if df.empty or "Recipient Name" not in df.columns:
+    if df.empty or "Recipient Name" not in df.columns or "Award Amount" not in df.columns:
         return pd.DataFrame()
     top = (
         df.groupby("Recipient Name")["Award Amount"]
@@ -261,7 +261,7 @@ def _build_summary(
             "Metric":      "Total contracts (USASpending)",
             "Value":       len(df_mcc),
             "USD":         df_mcc["Award Amount"].sum() if "Award Amount" in df_mcc.columns else 0,
-            "Notes":       f"Start dates: {df_mcc['Start Date'].min()} to {df_mcc['Start Date'].max()}" if "Start Date" in df_mcc.columns else "",
+            "Notes":       (lambda s, e: f"Start dates: {s} to {e}" if pd.notna(s) and pd.notna(e) else "")(df_mcc["Start Date"].min(), df_mcc["Start Date"].max()) if "Start Date" in df_mcc.columns else "",
         })
 
     if not df_recipients.empty:
@@ -315,7 +315,7 @@ def build_master_workbook():
     df_mcc_countries   = _load("mcc_countries")
     df_dfc_projects    = _load("dfc_active_projects")
     df_dfc_stories     = _load("dfc_impact_stories")
-    df_dfc_press       = _load("dfc_board_africa")
+    df_dfc_press       = _load("dfc_press_releases")
     df_dfc_fr          = _load("dfc_federal_register")
     df_dfc_spending    = _load("dfc_usaspending")
     df_dfc_sectors     = _load("dfc_sectors")

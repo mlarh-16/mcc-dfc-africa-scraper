@@ -23,7 +23,8 @@ SAM_GOV_API_KEY = "YOUR_SAM_GOV_API_KEY"
 REQUEST_TIMEOUT = 30
 CRAWL_DELAY     = 1.0
 API_DELAY       = 0.3
-MAX_PAGES       = 20
+MAX_PAGES           = 20
+MAX_PRESS_RELEASES  = None   # None = no limit; set to an int to cap scraping
 
 # -- USASpending settings ---------------------------------------------
 USASPENDING_URL  = "https://api.usaspending.gov/api/v2"
@@ -134,7 +135,7 @@ FILES = {
     # DFC
     "dfc_active_projects":    OUTPUT_DIR / "dfc_active_projects_africa.xlsx",
     "dfc_board_notices":      RAW_DIR    / "dfc_board_notices_raw.xlsx",
-    "dfc_board_africa":       OUTPUT_DIR / "dfc_press_releases_africa.xlsx",
+    "dfc_press_releases":     OUTPUT_DIR / "dfc_press_releases_africa.xlsx",
     "dfc_impact_stories":     OUTPUT_DIR / "dfc_impact_stories.xlsx",
     "dfc_federal_register":   OUTPUT_DIR / "dfc_federal_register_africa.xlsx",
     "dfc_usaspending":        OUTPUT_DIR / "usaspending_dfc_africa.xlsx",
