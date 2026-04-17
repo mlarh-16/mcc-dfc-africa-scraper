@@ -26,7 +26,11 @@ from tqdm import tqdm
 
 from scripts.config import (
     AFRICA_DFC_COUNTRIES,
-    AFRICA_KEYWORDS,
+    AFRICA_CODE_TO_NAME,
+    AFRICA_ISO_CODES,
+    DFC_AFRICA_COUNTRY_NAMES,
+    DFC_AFRICA_KEYWORDS,
+    FEDERAL_REGISTER_PROJECT_KEYWORDS,
     API_DELAY,
     AWARD_TYPE_CODES,
     CRAWL_DELAY,
@@ -61,11 +65,67 @@ TODAY = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 # Helpers
 # ─────────────────────────────────────────────────────────────
 
+def _normalize_country_name(value: str) -> str:
+    text = str(value or "").strip().lower()
+    text = re.sub(r"\s+", " ", text)
+    return text
+
+
+def _extract_country_mentions(text: str) -> list[str]:
+    """Extract Africa country mentions, longest-first to avoid 'Guinea'
+    matching inside 'Equatorial Guinea' or 'Guinea-Bissau'."""
+    t = str(text or "")
+    tl = t.lower()
+    found = []
+    # Sort longest-first so "Equatorial Guinea" is matched before "Guinea"
+    sorted_countries = sorted(AFRICA_DFC_COUNTRIES, key=len, reverse=True)
+    matched_spans = []
+    for c in sorted_countries:
+        pattern = r'\b' + re.escape(c.lower()) + r'\b'
+        for m in re.finditer(pattern, tl):
+            # Skip if this span overlaps with an already-matched longer name
+            if any(m.start() >= s and m.end() <= e for s, e in matched_spans):
+                continue
+            matched_spans.append((m.start(), m.end()))
+            if c not in found:
+                found.append(c)
+    return found
+
+
 def _is_africa(text: str) -> bool:
-    t = str(text).lower()
+    t = str(text or "").lower()
     if any(re.search(r'\b' + re.escape(c.lower()) + r'\b', t) for c in AFRICA_DFC_COUNTRIES):
         return True
-    return any(kw.lower() in t for kw in AFRICA_KEYWORDS)
+    return any(re.search(r'\b' + re.escape(kw.lower()) + r'\b', t) for kw in DFC_AFRICA_KEYWORDS)
+
+
+def _is_africa_place_of_performance(row: pd.Series) -> bool:
+    code = str(row.get("Place of Performance Country Code") or "").strip().upper()
+    if code in AFRICA_ISO_CODES:
+        return True
+    name = _normalize_country_name(row.get("Place of Performance Country Name"))
+    return name in DFC_AFRICA_COUNTRY_NAMES
+
+
+def _standardize_country_series(df: pd.DataFrame) -> pd.Series:
+    name_series = df.get("Place of Performance Country Name", pd.Series(index=df.index, dtype="object"))
+    code_series = df.get("Place of Performance Country Code", pd.Series(index=df.index, dtype="object"))
+    country = name_series.astype("object").where(name_series.notna(), code_series.map(AFRICA_CODE_TO_NAME))
+    country = country.where(country.notna(), code_series)
+    return country
+
+
+def _is_project_like_federal_register_notice(text: str) -> bool:
+    t = str(text or "").lower()
+    has_agency = any(term in t for term in [
+        "development finance corporation",
+        "international development finance corporation",
+        "overseas private investment corporation",
+        "opic",
+    ])
+    has_project_hint = any(kw in t for kw in FEDERAL_REGISTER_PROJECT_KEYWORDS)
+    has_africa = _is_africa(t)
+    return has_agency and has_project_hint and has_africa
 
 
 def _extract_amounts(text: str) -> list:
@@ -165,9 +225,8 @@ def scrape_dfc_transaction_data() -> pd.DataFrame:
                         log.info(f"  Total rows: {len(df_xl)}")
 
                         # Save full raw file
-                        raw_path = FILES["usaspending_all"].parent / "dfc_raw_download.xlsx"
-                        df_xl.to_excel(raw_path, index=False)
-                        log.info(f"  Raw data saved -> {raw_path}")
+                        df_xl.to_excel(FILES["dfc_raw_download"], index=False)
+                        log.info(f"  Raw data saved -> {FILES['dfc_raw_download']}")
 
                         # Filter for Africa — use Region column if available
                         if "Region" in df_xl.columns:
@@ -233,8 +292,9 @@ def scrape_dfc_transaction_data() -> pd.DataFrame:
                     if not cells:
                         continue
                     row_text = " ".join(cells)
-                    country = next(
-                        (c for c in AFRICA_DFC_COUNTRIES if c.lower() in row_text.lower()), ""
+                    country = "; ".join(
+                        c for c in AFRICA_DFC_COUNTRIES
+                        if re.search(r'\b' + re.escape(c.lower()) + r'\b', row_text.lower())
                     )
                     amounts = _extract_amounts(row_text)
                     record = {
@@ -317,8 +377,9 @@ def scrape_dfc_investment_stories() -> pd.DataFrame:
             time.sleep(API_DELAY)
             continue
 
-        country = next(
-            (c for c in AFRICA_DFC_COUNTRIES if re.search(r'\b' + re.escape(c.lower()) + r'\b', detail_text.lower())), ""
+        country = "; ".join(
+            c for c in AFRICA_DFC_COUNTRIES
+            if re.search(r'\b' + re.escape(c.lower()) + r'\b', detail_text.lower())
         )
         amounts = _extract_amounts(detail_text)
         jobs    = re.findall(r"[\d,]+\s*jobs?", detail_text, re.I)
@@ -362,7 +423,7 @@ def scrape_dfc_press_releases() -> pd.DataFrame:
     pr_links = []
     for a in soup.find_all("a", href=True):
         href = a["href"]
-        if "/press-release" in href or "/media/" in href:
+        if re.search(r"/media/press-releases?/", href):
             pr_links.append({
                 "title": a.get_text(strip=True),
                 "url":   _full_url(href),
@@ -390,8 +451,9 @@ def scrape_dfc_press_releases() -> pd.DataFrame:
             time.sleep(API_DELAY)
             continue
 
-        country = next(
-            (c for c in AFRICA_DFC_COUNTRIES if re.search(r'\b' + re.escape(c.lower()) + r'\b', detail_text.lower())), ""
+        country = "; ".join(
+            c for c in AFRICA_DFC_COUNTRIES
+            if re.search(r'\b' + re.escape(c.lower()) + r'\b', detail_text.lower())
         )
         amounts  = _extract_amounts(detail_text)
         date_tag = detail_soup.find(
@@ -430,6 +492,10 @@ def scrape_federal_register() -> pd.DataFrame:
 
     all_records = []
 
+    # Cap pages per query. The broader DFC full-text search can return thousands
+    # of false positives that mention "DFC" but aren't agency notices.
+    MAX_FR_PAGES = 15  # 15 * 100 = 1500 notices max per search
+
     searches = [
         {
             "conditions[agencies][]": "overseas-private-investment-corporation",
@@ -438,7 +504,7 @@ def scrape_federal_register() -> pd.DataFrame:
             "fields[]": ["title", "abstract", "publication_date", "html_url", "pdf_url"],
         },
         {
-            "conditions[term]": "International Development Finance Corporation",
+            "conditions[agencies][]": "u-s-international-development-finance-corporation",
             "per_page": 100,
             "order": "newest",
             "fields[]": ["title", "abstract", "publication_date", "html_url", "pdf_url"],
@@ -446,43 +512,53 @@ def scrape_federal_register() -> pd.DataFrame:
     ]
 
     for params in tqdm(searches, desc="  FR queries"):
-        resp = _safe_get(FEDERAL_REGISTER_API, params=params)
-        if not resp:
-            continue
+        page = 1
+        while page <= MAX_FR_PAGES:
+            params["page"] = page
+            resp = _safe_get(FEDERAL_REGISTER_API, params=params)
+            if not resp:
+                break
 
-        data = resp.json()
-        results = data.get("results", [])
-        log.info(f"  FR query returned {len(results)} notices (total: {data.get('count', 0)})")
+            data = resp.json()
+            results = data.get("results", [])
+            total_count = data.get("count", 0)
+            if page == 1:
+                pages_to_fetch = min(MAX_FR_PAGES, (total_count + 99) // 100)
+                log.info(f"  FR query: {total_count} total notices, fetching up to {pages_to_fetch} pages...")
 
-        for item in results:
-            title    = item.get("title") or ""
-            abstract = item.get("abstract") or ""
-            text     = f"{title} {abstract}"
-            country  = next(
-                (c for c in AFRICA_DFC_COUNTRIES if c.lower() in text.lower()), ""
-            )
-            amounts  = _extract_amounts(text)
-            all_records.append({
-                "title":            title,
-                "abstract":         abstract[:500],
-                "publication_date": item.get("publication_date", ""),
-                "country":          country,
-                "amounts":          "; ".join(amounts[:5]),
-                "html_url":         item.get("html_url", ""),
-                "pdf_url":          item.get("pdf_url", ""),
-                "is_africa":        bool(country),
-            })
-        time.sleep(API_DELAY)
+            for item in results:
+                title    = item.get("title") or ""
+                abstract = item.get("abstract") or ""
+                text     = f"{title} {abstract}"
+                countries = _extract_country_mentions(text)
+                amounts  = _extract_amounts(text)
+                keep_notice = _is_project_like_federal_register_notice(text) and bool(countries)
+                all_records.append({
+                    "title":            title,
+                    "abstract":         abstract[:500],
+                    "publication_date": item.get("publication_date", ""),
+                    "country":          "; ".join(countries),
+                    "amounts":          "; ".join(amounts[:5]),
+                    "html_url":         item.get("html_url", ""),
+                    "pdf_url":          item.get("pdf_url", ""),
+                    "is_africa":        bool(countries),
+                    "is_project_like":  keep_notice,
+                })
+
+            if len(results) < params.get("per_page", 100):
+                break
+            page += 1
+            time.sleep(API_DELAY)
 
     if not all_records:
         log.warning("  Federal Register returned no records.")
         return pd.DataFrame()
 
     df = pd.DataFrame(all_records)
-    df = df.drop_duplicates(subset=["title", "publication_date"])
+    df = df.drop_duplicates(subset=["title", "publication_date", "html_url"])
 
     df.to_excel(FILES["dfc_board_notices"], index=False)
-    df_africa = df[df["is_africa"]].copy()
+    df_africa = df[df["is_project_like"]].copy()
     df_africa.to_excel(FILES["dfc_federal_register"], index=False)
 
     log.info(f"  FR all notices    -> {FILES['dfc_board_notices']} ({len(df)} rows)")
@@ -555,15 +631,12 @@ def scrape_usaspending_dfc() -> pd.DataFrame:
         log.warning("  USASpending returned no DFC records.")
         return pd.DataFrame()
 
-    df_all = pd.DataFrame(all_records)
+    df_all = pd.DataFrame(all_records).drop_duplicates(subset=["Award ID"])
+    df_all["Country"] = _standardize_country_series(df_all)
     df_all.to_excel(FILES["dfc_usaspending_all"], index=False)
 
-    mask = df_all.apply(
-        lambda row: any(
-            c.lower() in str(row).lower() for c in AFRICA_DFC_COUNTRIES
-        ), axis=1,
-    )
-    df_africa = df_all[mask].copy()
+    df_africa = df_all[df_all.apply(_is_africa_place_of_performance, axis=1)].copy()
+    df_africa["Africa tagging basis"] = "Place of performance country code/name"
     df_africa.to_excel(FILES["dfc_usaspending"], index=False)
     log.info(f"  DFC all contracts    -> {FILES['dfc_usaspending_all']} ({len(df_all)} rows)")
     log.info(f"  DFC Africa contracts -> {FILES['dfc_usaspending']} ({len(df_africa)} rows)")
@@ -663,8 +736,9 @@ def scrape_dfc_sectors() -> pd.DataFrame:
                 if len(p.get_text(strip=True)) > 40
             ]
             description = " ".join(paras[:4])[:600]
-            country     = next(
-                (c for c in AFRICA_DFC_COUNTRIES if re.search(r'\b' + re.escape(c.lower()) + r'\b', detail_text.lower())), ""
+            country     = "; ".join(
+                c for c in AFRICA_DFC_COUNTRIES
+                if re.search(r'\b' + re.escape(c.lower()) + r'\b', detail_text.lower())
             )
             amounts     = _extract_amounts(detail_text)
             jobs        = re.findall(r"[\d,]+\s*jobs?", detail_text, re.I)

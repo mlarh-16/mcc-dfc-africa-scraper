@@ -23,13 +23,83 @@ SAM_GOV_API_KEY = "YOUR_SAM_GOV_API_KEY"
 REQUEST_TIMEOUT = 30
 CRAWL_DELAY     = 1.0
 API_DELAY       = 0.3
-MAX_PAGES           = 20
+MAX_PAGES           = 100
 MAX_PRESS_RELEASES  = None   # None = no limit; set to an int to cap scraping
 
 # -- USASpending settings ---------------------------------------------
 USASPENDING_URL  = "https://api.usaspending.gov/api/v2"
 MCC_AGENCY_NAME  = "Millennium Challenge Corporation"
-AWARD_TYPE_CODES = ["A", "B", "C", "D"]
+AWARD_TYPE_CODES  = ["A", "B", "C", "D"]          # contracts
+GRANT_TYPE_CODES  = ["02", "03", "04", "05"]       # grants & cooperative agreements
+
+# ISO 3166-1 alpha-3 → canonical country name (used for display + code-to-name lookups)
+AFRICA_CODE_TO_NAME = {
+    "DZA": "Algeria",         "AGO": "Angola",
+    "BEN": "Benin",           "BWA": "Botswana",
+    "BFA": "Burkina Faso",    "BDI": "Burundi",
+    "CPV": "Cabo Verde",      "CMR": "Cameroon",
+    "CAF": "Central African Republic",
+    "TCD": "Chad",            "COM": "Comoros",
+    "COD": "Democratic Republic of the Congo",
+    "COG": "Republic of the Congo",
+    "CIV": "Côte d'Ivoire",   "DJI": "Djibouti",
+    "EGY": "Egypt",           "GNQ": "Equatorial Guinea",
+    "ERI": "Eritrea",         "SWZ": "Eswatini",
+    "ETH": "Ethiopia",        "GAB": "Gabon",
+    "GMB": "Gambia",          "GHA": "Ghana",
+    "GIN": "Guinea",          "GNB": "Guinea-Bissau",
+    "KEN": "Kenya",           "LSO": "Lesotho",
+    "LBR": "Liberia",         "LBY": "Libya",
+    "MDG": "Madagascar",      "MWI": "Malawi",
+    "MLI": "Mali",            "MRT": "Mauritania",
+    "MUS": "Mauritius",       "MAR": "Morocco",
+    "MOZ": "Mozambique",      "NAM": "Namibia",
+    "NER": "Niger",           "NGA": "Nigeria",
+    "RWA": "Rwanda",          "STP": "São Tomé and Príncipe",
+    "SEN": "Senegal",         "SLE": "Sierra Leone",
+    "SOM": "Somalia",         "ZAF": "South Africa",
+    "SSD": "South Sudan",     "SDN": "Sudan",
+    "TZA": "Tanzania",        "TGO": "Togo",
+    "SYC": "Seychelles",
+    "TUN": "Tunisia",         "UGA": "Uganda",
+    "ZMB": "Zambia",          "ZWE": "Zimbabwe",
+}
+
+# ISO 3166-1 alpha-3 codes for African countries — used to filter MCC grant data
+# (USASpending grants use country codes, not names)
+AFRICA_ISO_CODES = {
+    "DZA","AGO","BEN","BWA","BFA","BDI","CPV","CMR","CAF","TCD",
+    "COM","COD","COG","CIV","DJI","EGY","GNQ","ERI","SWZ","ETH",
+    "GAB","GMB","GHA","GIN","GNB","KEN","LSO","LBR","LBY","MDG",
+    "MWI","MLI","MRT","MUS","MAR","MOZ","NAM","NER","NGA","RWA",
+    "STP","SEN","SLE","SOM","SYC","ZAF","SSD","SDN","TZA","TGO","TUN",
+    "UGA","ZMB","ZWE",
+}
+
+# Canonical Africa country names for MCC USASpending filtering
+MCC_AFRICA_COUNTRY_NAMES = {
+    "algeria", "angola", "benin", "botswana", "burkina faso", "burundi",
+    "cabo verde", "cameroon", "central african republic", "chad", "comoros",
+    "congo", "republic of the congo", "democratic republic of the congo",
+    "cote d'ivoire", "côte d'ivoire", "djibouti", "egypt",
+    "equatorial guinea", "eritrea", "eswatini", "ethiopia", "gabon",
+    "gambia", "the gambia", "ghana", "guinea", "guinea-bissau", "kenya",
+    "lesotho", "liberia", "libya", "madagascar", "malawi", "mali", "seychelles",
+    "mauritania", "mauritius", "morocco", "mozambique", "namibia",
+    "niger", "nigeria", "rwanda", "sao tome and principe",
+    "são tomé and príncipe", "senegal", "sierra leone", "somalia",
+    "south africa", "south sudan", "sudan", "tanzania", "togo",
+    "tunisia", "uganda", "zambia", "zimbabwe",
+    # Common aliases
+    "ivory coast", "swaziland", "cape verde",
+}
+
+# -- MCC Open Data (data.mcc.gov) -------------------------------------
+MCC_OPEN_DATA_URL = (
+    "https://inventory.data.gov/dataset/"
+    "bd84b2f3-2234-47c2-a814-aded48a9d346/"
+    "resource/1b4eae40-ca69-4246-ab69-484253345818/download/data.csv"
+)
 
 # -- SAM.gov settings -------------------------------------------------
 SAM_GOV_URL = "https://api.sam.gov/opportunities/v2/search"
@@ -43,28 +113,34 @@ SCRAPER_HEADERS = {
 MCC_BASE_URL = "https://www.mcc.gov"
 
 AFRICA_MCC_COUNTRIES = [
-    ("ghana",        "https://www.mcc.gov/where-we-work/country/ghana"),
-    ("tanzania",     "https://www.mcc.gov/where-we-work/country/tanzania"),
-    ("morocco",      "https://www.mcc.gov/where-we-work/country/morocco"),
-    ("mozambique",   "https://www.mcc.gov/where-we-work/country/mozambique"),
-    ("lesotho",      "https://www.mcc.gov/where-we-work/country/lesotho"),
-    ("senegal",      "https://www.mcc.gov/where-we-work/country/senegal"),
-    ("namibia",      "https://www.mcc.gov/where-we-work/country/namibia"),
-    ("ethiopia",     "https://www.mcc.gov/where-we-work/country/ethiopia"),
-    ("mali",         "https://www.mcc.gov/where-we-work/country/mali"),
-    ("rwanda",       "https://www.mcc.gov/where-we-work/country/rwanda"),
-    ("benin",        "https://www.mcc.gov/where-we-work/country/benin"),
-    ("burkina-faso", "https://www.mcc.gov/where-we-work/country/burkina-faso"),
-    ("sierra-leone", "https://www.mcc.gov/where-we-work/country/sierra-leone"),
-    ("cote-divoire", "https://www.mcc.gov/where-we-work/country/cote-divoire"),
-    ("zambia",       "https://www.mcc.gov/where-we-work/country/zambia"),
-    ("cabo-verde",   "https://www.mcc.gov/where-we-work/country/cabo-verde"),
-    ("niger",        "https://www.mcc.gov/where-we-work/country/niger"),
-    ("kenya",        "https://www.mcc.gov/where-we-work/country/kenya"),
-    ("malawi",       "https://www.mcc.gov/where-we-work/country/malawi"),
-    ("liberia",      "https://www.mcc.gov/where-we-work/country/liberia"),
-    ("madagascar",   "https://www.mcc.gov/where-we-work/country/madagascar"),
-    ("tunisia",      "https://www.mcc.gov/where-we-work/country/tunisia"),
+    ("ghana",                  "https://www.mcc.gov/where-we-work/country/ghana"),
+    ("tanzania",               "https://www.mcc.gov/where-we-work/country/tanzania"),
+    ("morocco",                "https://www.mcc.gov/where-we-work/country/morocco"),
+    ("mozambique",             "https://www.mcc.gov/where-we-work/country/mozambique"),
+    ("lesotho",                "https://www.mcc.gov/where-we-work/country/lesotho"),
+    ("senegal",                "https://www.mcc.gov/where-we-work/country/senegal"),
+    ("namibia",                "https://www.mcc.gov/where-we-work/country/namibia"),
+    ("ethiopia",               "https://www.mcc.gov/where-we-work/country/ethiopia"),
+    ("mali",                   "https://www.mcc.gov/where-we-work/country/mali"),
+    ("rwanda",                 "https://www.mcc.gov/where-we-work/country/rwanda"),
+    ("benin",                  "https://www.mcc.gov/where-we-work/country/benin"),
+    ("burkina-faso",           "https://www.mcc.gov/where-we-work/country/burkina-faso"),
+    ("sierra-leone",           "https://www.mcc.gov/where-we-work/country/sierra-leone"),
+    ("cote-divoire",           "https://www.mcc.gov/where-we-work/country/cote-divoire"),
+    ("zambia",                 "https://www.mcc.gov/where-we-work/country/zambia"),
+    ("cabo-verde",             "https://www.mcc.gov/where-we-work/country/cabo-verde"),
+    ("niger",                  "https://www.mcc.gov/where-we-work/country/niger"),
+    ("kenya",                  "https://www.mcc.gov/where-we-work/country/kenya"),
+    ("malawi",                 "https://www.mcc.gov/where-we-work/country/malawi"),
+    ("liberia",                "https://www.mcc.gov/where-we-work/country/liberia"),
+    ("madagascar",             "https://www.mcc.gov/where-we-work/country/madagascar"),
+    ("tunisia",                "https://www.mcc.gov/where-we-work/country/tunisia"),
+    # Added after cross-check with mcc.gov/where-we-work (2026-04-10)
+    ("gambia",                 "https://www.mcc.gov/where-we-work/country/gambia"),
+    ("sao-tome-and-principe",  "https://www.mcc.gov/where-we-work/country/sao-tome-and-principe"),
+    ("mauritania",             "https://www.mcc.gov/where-we-work/country/mauritania"),
+    ("togo",                   "https://www.mcc.gov/where-we-work/country/togo"),
+    ("uganda",                 "https://www.mcc.gov/where-we-work/country/uganda"),
 ]
 
 AFRICA_KEYWORDS = [c for c, _ in AFRICA_MCC_COUNTRIES] + [
@@ -75,6 +151,37 @@ SAM_SEARCH_KEYWORDS = [
     "Ghana", "Tanzania", "Morocco", "Mozambique", "Senegal",
     "Rwanda", "Ethiopia", "Zambia", "Lesotho", "Namibia",
     "Millennium Challenge", "MCA-", "MCC Africa",
+]
+
+# Lowercase canonical names for DFC place-of-performance filtering
+# (derived from AFRICA_DFC_COUNTRIES so they stay in sync)
+DFC_AFRICA_COUNTRY_NAMES = {c.lower() for c in [
+    "Nigeria", "Kenya", "Ghana", "Ethiopia", "South Africa",
+    "Mozambique", "Tanzania", "Rwanda", "Senegal", "Morocco",
+    "Egypt", "Tunisia", "Zambia", "Uganda", "Cote d'Ivoire",
+    "Côte d'Ivoire", "DRC", "Congo", "Angola", "Cameroon",
+    "Madagascar", "Malawi", "Niger", "Mali", "Burkina Faso",
+    "Sierra Leone", "Liberia", "Guinea", "Benin", "Togo",
+    "Mauritania", "Namibia", "Botswana", "Zimbabwe", "Lesotho",
+    "Eswatini", "Djibouti", "Somalia", "Sudan", "Chad",
+    "Equatorial Guinea", "Gabon", "Cabo Verde", "Mauritius",
+    "Seychelles", "Comoros", "Eritrea", "Burundi",
+    "Central African Republic", "Guinea-Bissau", "South Sudan",
+    "Gambia", "São Tomé and Príncipe",
+    # Added after config audit: missing countries + common aliases
+    "Algeria", "Libya",
+    "Ivory Coast", "Swaziland", "Cape Verde", "The Gambia",
+]}
+
+# Broad continent/regional keywords used alongside country-name matching in _is_africa()
+DFC_AFRICA_KEYWORDS = [
+    "africa", "sub-saharan", "african", "ssa",
+]
+
+# Keywords that indicate a Federal Register notice is a project notice (vs regulatory/policy)
+FEDERAL_REGISTER_PROJECT_KEYWORDS = [
+    "loan", "guarantee", "investment", "project", "financing",
+    "equity", "insurance", "contract", "commitment",
 ]
 
 # -- DFC settings -----------------------------------------------------
@@ -122,6 +229,11 @@ AFRICA_DFC_COUNTRIES = [
     "Eswatini", "Djibouti", "Somalia", "Sudan", "Chad",
     "Equatorial Guinea", "Gabon", "Cabo Verde", "Mauritius",
     "Seychelles", "Comoros", "Eritrea", "Burundi",
+    # Added after cross-check with dfc.gov/where-we-work (2026-04-10)
+    "Central African Republic", "Guinea-Bissau", "South Sudan",
+    "Gambia", "São Tomé and Príncipe",
+    # Added after config audit (2026-04-13)
+    "Algeria", "Libya",
 ]
 
 # -- Output file names ------------------------------------------------
@@ -132,7 +244,12 @@ FILES = {
     "usaspending_recipients": OUTPUT_DIR / "usaspending_mcc_top_recipients.xlsx",
     "samgov":                 OUTPUT_DIR / "samgov_mcc_africa.xlsx",
     "mcc_countries":          OUTPUT_DIR / "mcc_country_pages.xlsx",
+    "mcc_grants_all":         RAW_DIR    / "usaspending_mcc_grants_all.xlsx",
+    "mcc_grants_africa":      OUTPUT_DIR / "usaspending_mcc_grants_africa.xlsx",
+    "mcc_compact_sectors":    OUTPUT_DIR / "mcc_compact_sectors.xlsx",
+    "mcc_open_data_sectors":  OUTPUT_DIR / "mcc_open_data_sectors.xlsx",
     # DFC
+    "dfc_raw_download":       RAW_DIR    / "dfc_raw_download.xlsx",
     "dfc_active_projects":    OUTPUT_DIR / "dfc_active_projects_africa.xlsx",
     "dfc_board_notices":      RAW_DIR    / "dfc_board_notices_raw.xlsx",
     "dfc_press_releases":     OUTPUT_DIR / "dfc_press_releases_africa.xlsx",
